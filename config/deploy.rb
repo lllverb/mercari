@@ -53,7 +53,6 @@ namespace :deploy do
   after :finishing, 'deploy:cleanup'
 end
 
-必要に応じて/環境変数をcapistranoでの自動デプロイで利用
 set :default_env, {
   rbenv_root: "/usr/local/rbenv",
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
