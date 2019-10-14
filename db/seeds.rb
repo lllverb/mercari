@@ -564,3 +564,41 @@ others_officeitem = others.children.create(name:"事務/店舗用品")
 others_officeitem.children.create([{name:"オフィス用品一般"},{name:"オフィス家具"},{name:"店舗用品"},{name:"OA機器"},{name:"ラッピング/包装"},{name:"その他"}])
 
 others_other = others.children.create(name:"その他")
+
+
+
+  ['XXS以下','XS(SS)','S','M','L','XL(LL)','2XL(3L)','3XL(4L)','4XL(5L)以上','FREE SIZE']
+.each do |name|
+  Size.create!(
+    {content: name }
+  )
+end
+
+
+['送料込み(出品者負担)','着払い(購入者負担)']
+.each do |name|
+  ShippingFee.create!(
+    {content: name }
+  )
+end
+
+['未定','クロネコヤマト','ゆうパック','ゆうメール','らくらくメルカリ便','レターパック','普通郵便(定形、定形外)','クリックポスト','ゆうパケット']
+.each do |name|
+  ShippingMethod.create!(
+    {content: name }
+  )
+end
+
+['1~2日で発送','2~3日で発送','4~7日で発送']
+.each do |name|
+  Deliveryday.create!(
+    {content: name }
+  )
+end
+
+['新品、未使用','未使用に近い','目立った傷や汚れなし','やや傷や汚れあり','傷や汚れあり','全体的に状態が悪い']
+.each do |name|
+  Condition.create!(
+    {content: name }
+  )
+end
