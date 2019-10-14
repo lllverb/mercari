@@ -41,7 +41,8 @@ class SignupController < ApplicationController
       session[:id] = @user.id
       redirect_to done_signup_index_path
     else
-      render '/signup/registration'
+      flash[:notice] = 'もう一度'
+      render '/signup/step1'
     end
   end
 
