@@ -4,15 +4,15 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.integer :price, null: false
       t.text   :detail, null:false
-      t.references :user, null: false, foreign_key: true
-      t.references :condition, null: false, foreign_key: true
-      t.references :shipping_fee, null: false, foreign_key: true
-      t.references :shipping_method, null: false, foreign_key: true
-      t.references :prefecuture, null: false, foreign_key: true
-      t.references :deliveryday, null: false, foreign_key: true
-      t.references :category, null: false, foreign_key: true
-      t.references :brand, foreign_key: true
-      t.references :size, foreign_key: true
+      t.bigint :user, null: false, foreign_key: true
+      t.bigint :condition, null: false, foreign_key: true
+      t.bigint :shipping_fee, null: false, foreign_key: true
+      t.bigint :shipping_method, null: false, foreign_key: true
+      t.bigint :prefecture, null: false, foreign_key: true
+      t.bigint :deliveryday, null: false, foreign_key: true
+      t.bigint :category, null: false, foreign_key: true
+      t.bigint :brand, foreign_key: true
+      t.bigint :size, foreign_key: true
       t.timestamps
     end
   end
