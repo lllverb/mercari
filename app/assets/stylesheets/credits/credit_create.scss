@@ -21,42 +21,28 @@
     }
     &__deadlile{
       &--lower{
-        display: flex;
         margin-top: 6px;
-        .select-month{
+        select{
+          width: 80px;
+          height: 28px;
+          margin-right: 10px;
+          padding-left: 10px;
+          background-color: #ffffff;
+          border-radius: 3px;
+          font-size: 11px;
           font-weight: normal;
-          select{
-            width: 80px;
-            height: 28px;
-            padding-left: 10px;
-            background-color: #ffffff;
-            border-radius: 3px;
-            font-size: 11px;
-            font-weight: normal;
-            border: 0.5px solid #CECECE;
-            &:focus{
-              outline: 0;
-              border: 0.5px solid $mercari_blue;
-            }
+          border: 0.5px solid #CECECE;
+          &:focus{
+            outline: 0;
+            border: 0.5px solid $mercari_blue;
           }
         }
-        .select-year{
-          padding-left: 10px;
+        .select-month{
           font-weight: normal;
-          select{
-            width: 80px;
-            height: 28px;
-            padding-left: 10px;
-            background-color: #ffffff;
-            border-radius: 3px;
-            font-size: 11px;
-            font-weight: normal;
-            border: 0.5px solid #CECECE;
-            &:focus{
-              outline: 0;
-              border: 0.5px solid $mercari_blue;
-            }
-          }
+        }
+        .select-year{
+          margin-top: 10px;
+          font-weight: normal;
         }
       }
     }
