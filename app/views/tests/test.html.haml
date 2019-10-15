@@ -1,0 +1,78 @@
+.my-page-container
+  .sell-form
+    .my-page-container--upper
+      %h2 商品の情報を入力
+    .my-page-container--lower
+      = form_for "" do |f|
+        .product__images.border-bottom
+          .inner-box
+            .null-null
+              %h5 出品画像
+              %span.null-false 必須
+            最大10枚までアップロードできます
+            .image-area
+              = f.fields_for :product__images do |i|
+                = i.file_field :image
+        .product__name.border-bottom
+          .inner-box
+            .null-null
+              %h5 商品名
+              %span.null-false 必須
+            = f.text_field :name, placeholder: "商品名(必須40文字まで)"
+            .null-null
+              %h5 商品の説明
+              %span.null-false 必須
+            = f.text_area :detail, placeholder: "商品の説明(必須1,000文字以内)(色、素材、重さ、定価、注意点など)　例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        .product__category.border-bottom
+          .inner-box.choose
+            .choose--left
+              %p 商品の詳細
+            .choose--right
+              .null-null
+                %h5 カテゴリー
+                %span.null-false 必須
+              = f.select :category, @parents.all.map{|p| [p.name, p.id]}
+              -# = f.select :category, @parents.all.map{|p| p.children.all.map{|c| [c.name, c.id]}}
+              .null-null
+                %h5 商品の状態
+                %span.null-false 必須
+              = f.select :condition, Condition.all.collect{|x|[x.content, x.id]}
+        .product__shipping.border-bottom
+          .inner-box.choose
+            .choose--left
+              %p 配送について
+            .choose--right
+              .null-null
+                %h5 配送料の負担
+                %span.null-false 必須
+              = f.select :shipping_fee, ShippingFee.all.collect{|x|[x.content, x.id]}
+              .null-null
+                %h5 発送元の地域
+                %span.null-false 必須
+              = f.select :prefecture, Prefecture.all.collect{|x|[x.name, x.id]}
+              .null-null
+                %h5 発送までの日数
+                %span.null-false 必須
+              = f.select :deliveryday, Deliveryday.all.collect{|x|[x.content, x.id]}
+        .product__price.border-bottom
+          .inner-box.choose
+            .choose--left
+              %p 販売価格(300~9,999,999)
+            .choose--right
+              .null-null
+                %h5 価格
+                %span.null-false 必須
+                = f.text_field :price, placeholder: "例)300", class: "price"
+              .center
+                %h4 販売手数料
+              .lower
+                %h4 販売利益
+        .product__submit
+          .inner-box
+            .caution
+              %p 禁止されている出品、行為を必ずご確認ください。
+              %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+              %p また、出品をもちまして加盟店規約に同意したことになります。
+            = f.submit "出品する", class: "sell-button"
+            .sell-return
+              = link_to "もどる", class: "sell-return"

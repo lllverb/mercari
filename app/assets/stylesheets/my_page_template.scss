@@ -75,27 +75,27 @@
       width: 70%;
       margin: 0 auto;
       padding: 30px 0;
-      h5{
-        font-size: 14px;
-        font-weight: bold;
-        letter-spacing: 2px;
+    }
+    h5{
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    h6{
+      font-size: 14px;
+    }
+    a{
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 5px;
+      color: $mercari_blue;
+      font-size: 12px;
+      text-decoration: none;
+      &:hover{
+        opacity: 0.7;
       }
-      h6{
-        font-size: 14px;
-      }
-      a{
-        display: flex;
-        justify-content: flex-end;
-        margin-top: 5px;
-        color: $mercari_blue;
-        font-size: 12px;
-        text-decoration: none;
-        &:hover{
-          opacity: 0.7;
-        }
-        p:hover{
-          border-bottom: 0.5px solid $mercari_blue;
-        }
+      p:hover{
+        border-bottom: 0.5px solid $mercari_blue;
       }
     }
   }
