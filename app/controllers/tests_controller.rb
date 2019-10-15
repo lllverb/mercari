@@ -21,4 +21,8 @@ class TestsController < ApplicationController
   def mail_password
   end
 
+  def test
+    @parents = Category.where(ancestry: nil)
+  end
+
 end
