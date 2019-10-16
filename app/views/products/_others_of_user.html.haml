@@ -1,6 +1,6 @@
 .othersOfUser-container
   .othersOfUser-container--upper
-    = link_to "ちはやさんのその他の出品", "#"
+    = link_to "#{@product.user.nickname}さんのその他の出品", "#"
   .othersOfUser-container--lower
     %ul.upper-ul
       %li.product

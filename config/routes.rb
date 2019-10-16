@@ -28,7 +28,7 @@ devise_for :users,
   get 'users/credit_create'
 # user関係
  
-  resources :products, only: [:index, :show, :new,:edit] 
+  resources :products, only: [:index, :show, :new, :edit, :create] 
   resources :users, only: [:index, :edit, :update]
   
 end

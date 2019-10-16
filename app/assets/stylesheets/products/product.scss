@@ -4,7 +4,8 @@ html{
 }
 
 .container{
-  width: 460px;
+  width: 80%;
+  max-width: 700px;
   margin: 28px auto 0;
 }
 
@@ -13,18 +14,18 @@ html{
   &__inner{
     width: 95%;
     margin: 0 auto;
-    padding: 15px 0 15px;
+    padding: 15px 0;
     &--upper{
       width: 90%;
       margin: 0 auto;
       h2{
-        font-size: 16px;
+        font-size: 24px;
         font-weight: bold;
         text-align: center;
       }
       p{
-        padding-top: 8px;
-        font-size: 9px;
+        padding-top: 15px;
+        font-size: 12px;
         color: #8b8b8b;
         text-align: left;
       }
@@ -32,18 +33,20 @@ html{
     &--center{
       display: flex;
       justify-content: space-around;
-      margin: 15px auto;
+      margin: 25px auto 0;
       width: 100%;
       .imagekari{
-        width: 190px;
-        height: 250px;
+        width: 250px;
+        height: 350px;
         background-color: yellow;
       }
-      table, tr, th, td{
-        width: 190px;
+      table{
+        width: 100%;
+      }
+      tr, th, td{
         border: 0.5px #f5f5f5 solid;
-        font-size: 9px;
-        line-height: 1.5rem;
+        font-size: 12px;
+        line-height: 2rem;
         a{
           color: #0295EE;
           text-decoration: none;
@@ -62,23 +65,23 @@ html{
       }
     }
     &--lower{
+      margin: 25px auto 0;
       &--upper{
         display: flex;
         justify-content: center;
+        align-items: flex-end;
         h1{
-          font-size: 24px;
+          font-size: 40px;
           font-weight: bold;
         }
         span{
           padding-left: 15px;
           font-size: 6px;
-          vertical-align: sub;
-          line-height: 44px;
+          margin-bottom: 10px;
         }
         p{
-          font-size: 10px;
-          vertical-align: sub;
-          line-height: 44px;
+          font-size: 14px;
+          margin-bottom: 8px;
         }
       }
       .to-purchase-button{
@@ -87,38 +90,38 @@ html{
           a{
             display: block;
             width: 100%;
-            height: 40px;
-            line-height: 40px;
+            height: 60px;
+            line-height: 60px;
             text-decoration: none;
             border: none;
             background-color: $mercari_red;
             text-align: center;
-            font-size: 18px;
+            font-size: 26px;
+            font-weight: bold;
             color: white;
           }
       }
       &--center{
         width: 95%;
-        margin: 0 auto;
-        padding-top: 15px;
-        font-size: 12px;
+        margin: 25px auto 0;
+        font-size: 14px;
         color: $mercari_black;
+        white-space: pre-wrap;
       }
       &--lower{
         display: flex;
         justify-content: space-between;
         width: 95%;
-        margin: 0 auto;
-        padding-top: 20px;
-        line-height: 20px;
+        margin: 35px auto 25px;
         .how-many-likes{
-          height: 20px;
-          padding: 3px 10px;
-          border-radius: 13px;
+          height: 30px;
+          padding: 0 20px;
+          line-height: 30px;
+          border-radius: 15px;
           background-color: #f5f5f5;
           a{
             display: flex;
-            font-size: 9px;
+            font-size: 12px;
             color: $mercari_black;
             text-decoration: none;
             p{
@@ -127,13 +130,14 @@ html{
           }
         }
         .houkoku{
-          height: 20px;
-          padding: 3px 10px;
-          border-radius: 10px;
+          height: 30px;
+          padding: 0 20px;
+          line-height: 30px;
+          border-radius: 15px;
           background-color: #f5f5f5;
           a{
             display: flex;
-            font-size: 9px;
+            font-size: 12px;
             color: $mercari_black;
             text-decoration: none;
             p{
@@ -142,12 +146,13 @@ html{
           }
         }
         .torikumi{
-          height: 20px;
-          padding: 3px 10px;
+          height: 30px;
+          padding: 0 10px;
+          line-height: 30px;
           text-align: center;
           a{
             display: flex;
-            font-size: 9px;
+            font-size: 12px;
             color: $mercari_blue;
             text-decoration: none;
             p{
