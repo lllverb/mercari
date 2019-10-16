@@ -3,7 +3,7 @@
     .my-page-container--upper
       %h2 商品の情報を入力
     .my-page-container--lower
-      = form_for "" do |f|
+      = form_for Product.new do |f|
         .product__images.border-bottom
           .inner-box
             .null-null
@@ -46,6 +46,10 @@
                 %h5 配送料の負担
                 %span.null-false 必須
               = f.select :shipping_fee, ShippingFee.all.collect{|x|[x.content, x.id]}
+              .null-null
+                %h5 配送方法
+                %span.null-false 必須
+              = f.select :shipping_method, ShippingMethod.all.collect{|x|[x.content, x.id]}
               .null-null
                 %h5 発送元の地域
                 %span.null-false 必須
