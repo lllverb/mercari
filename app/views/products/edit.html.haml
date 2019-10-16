@@ -1,0 +1,76 @@
+= render 'shared/header'
+.edit-container
+  .product-container__inner
+    .product-container__inner--upper
+      %h2 サマーボーダーニット
+    .product-container__inner--center
+      .product-container__inner--center--left
+        .imagekari
+      .product-container__inner--center--right
+        .tablearea
+          %table
+            %tr
+              %th 出品者
+              %td 
+                %p 
+                  = link_to "ちはや", "#"
+                %p 評価
+            %tr
+              %th カテゴリー
+              %td 
+                = link_to "レディース", "#"
+            %tr
+              %th ブランド
+              %td 
+            %tr
+              %th 商品のサイズ
+              %td S
+            %tr
+              %th 商品の状態
+              %td やや傷や汚れあり
+            %tr
+              %th 配送料の負担
+              %td 送料込み(出品者負担)
+            %tr
+              %th 配送の方法
+              %td ゆうゆうメルカリ便
+            %tr
+              %th 配送元地域
+              %td 
+                = link_to "大阪府", "#"
+            %tr
+              %th 発送日の目安
+              %td 1~2日で発送
+    .product-container__inner--lower
+      .product-container__inner--lower--upper
+        %h1.price ￥999
+        %span.price (税込)
+        %p.price 送料込み
+      .product-container__inner--lower--center.text
+        ドルマンニットです。
+        %br
+        サマーニットなので涼しいです。
+        %br
+        体のラインを拾わず体型カバーできます。
+        %br
+        Sですが普段Lの方でも着れそうな気がします。
+        %br
+      .to-purchase-button
+        = link_to "商品の編集", tests_test_path
+        %br
+        %h2.or or
+      .to-edit-button
+        = link_to "出品を一旦停止する", "#"
+        %br
+      .to-delete-button
+        = link_to "この商品を削除する", "#"
+  .edit-container__fotter
+    %p.edit_coment
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .edit-container__fotter__coment
+      = form_for "" do |f|
+        = f.text_area :detail,class: "product_coment"
+    .to-coment-button
+      = link_to "コメントする", "#"
+= render 'shared/main_footer'
+
