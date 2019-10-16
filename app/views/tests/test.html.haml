@@ -64,9 +64,15 @@
                 %span.null-false 必須
                 = f.text_field :price, placeholder: "例)300", class: "price"
               .center
-                %h4 販売手数料
+                .center--left
+                  %h4 販売手数料
+                .center--right
+                  %p -
               .lower
-                %h4 販売利益
+                .lower--left
+                  %h4 販売利益
+                .lower--right
+                  %p -
         .product__submit
           .inner-box
             .caution
