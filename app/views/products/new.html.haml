@@ -32,7 +32,6 @@
                 %h5 カテゴリー
                 %span.null-false 必須
               = f.select :category, @parents.all.map{|p| [p.name, p.id]}
-              -# = f.select :category, @parents.all.map{|p| p.children.all.map{|c| [c.name, c.id]}}
               .null-null
                 %h5 商品の状態
                 %span.null-false 必須
