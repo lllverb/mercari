@@ -38,7 +38,9 @@ html{
       .image{
         width: 250px;
         height: 350px;
-        // background-color: yellow;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
       }
       table{
         width: 100%;
