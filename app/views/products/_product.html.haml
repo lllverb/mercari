@@ -1,4 +1,5 @@
 .product-container
+  = debug(@product.product_images[0].image)
   .product-container__inner
     .product-container__inner--upper
       %h2 
@@ -7,7 +8,8 @@
         = "『#{@product.name}』は、216回の取引実績を持つ#{@product.user.nickname}さんから出品されました。#{@product.category.name}(ニット/セーター/レディース)の商品で、#{@product.prefecture.name}から#{@product.deliveryday.content}されます。"
     .product-container__inner--center
       .product-container__inner--center--left
-        .imagekari
+        .image{style: "background-image: url(#{@product.product_images[0].image})"}
+
       .product-container__inner--center--right
         .tablearea
           %table

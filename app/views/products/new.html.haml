@@ -3,7 +3,7 @@
     .my-page-container--upper
       %h2 商品の情報を入力
     .my-page-container--lower
-      = form_with model: Product.new do |f|
+      = form_with model: @product do |f|
         .product__images.border-bottom
           .inner-box
             .null-null
@@ -11,7 +11,7 @@
               %span.null-false 必須
             最大10枚までアップロードできます
             .image-area
-              = f.fields_for :product__images do |i|
+              = f.fields_for :product_images do |i|
                 = i.file_field :image
         .product__name.border-bottom
           .inner-box
