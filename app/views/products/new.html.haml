@@ -3,7 +3,7 @@
     .my-page-container--upper
       %h2 商品の情報を入力
     .my-page-container--lower
-      = form_for Product.new do |f|
+      = form_with model: Product.new do |f|
         .product__images.border-bottom
           .inner-box
             .null-null
@@ -31,7 +31,7 @@
               .null-null
                 %h5 カテゴリー
                 %span.null-false 必須
-              = f.select :category_id, @parents.all.map{|p| [p.name, p.id]}
+              = f.select :category_id, Category.where(ancestry: nil).map{|p| [p.name, p.id]}
               .null-null
                 %h5 商品の状態
                 %span.null-false 必須
