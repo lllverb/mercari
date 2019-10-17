@@ -43,17 +43,26 @@ ActiveRecord::Schema.define(version: 2019_10_14_115751) do
     t.string "name", null: false
     t.integer "price", null: false
     t.text "detail", null: false
-    t.bigint "user", null: false
-    t.bigint "condition", null: false
-    t.bigint "shipping_fee", null: false
-    t.bigint "shipping_method", null: false
-    t.bigint "prefecture", null: false
-    t.bigint "deliveryday", null: false
-    t.bigint "category", null: false
-    t.bigint "brand"
-    t.bigint "size"
+    t.bigint "user_id", null: false
+    t.bigint "condition_id", null: false
+    t.bigint "shipping_fee_id", null: false
+    t.bigint "shipping_method_id", null: false
+    t.bigint "prefecture_id", null: false
+    t.bigint "deliveryday_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "brand_id"
+    t.bigint "size_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["condition_id"], name: "index_products_on_condition_id"
+    t.index ["deliveryday_id"], name: "index_products_on_deliveryday_id"
+    t.index ["prefecture_id"], name: "index_products_on_prefecture_id"
+    t.index ["shipping_fee_id"], name: "index_products_on_shipping_fee_id"
+    t.index ["shipping_method_id"], name: "index_products_on_shipping_method_id"
+    t.index ["size_id"], name: "index_products_on_size_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "shipping_fees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -105,5 +114,12 @@ ActiveRecord::Schema.define(version: 2019_10_14_115751) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "conditions"
+  add_foreign_key "products", "deliverydays"
+  add_foreign_key "products", "prefectures"
+  add_foreign_key "products", "shipping_fees"
+  add_foreign_key "products", "shipping_methods"
+  add_foreign_key "products", "users"
   add_foreign_key "sns_credentials", "users"
 end

@@ -4,16 +4,23 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.integer :price, null: false
       t.text   :detail, null:false
-      t.bigint :user, null: false, foreign_key: true
-      t.bigint :condition, null: false, foreign_key: true
-      t.bigint :shipping_fee, null: false, foreign_key: true
-      t.bigint :shipping_method, null: false, foreign_key: true
-      t.bigint :prefecture, null: false, foreign_key: true
-      t.bigint :deliveryday, null: false, foreign_key: true
-      t.bigint :category, null: false, foreign_key: true
-      t.bigint :brand, foreign_key: true
-      t.bigint :size, foreign_key: true
+      t.references :user, null: false
+      t.references :condition, null: false
+      t.references :shipping_fee, null: false
+      t.references :shipping_method, null: false
+      t.references :prefecture, null: false
+      t.references :deliveryday, null: false
+      t.references :category, null: false
+      t.references :brand, null: true
+      t.references :size, null: true
       t.timestamps
     end
+    add_foreign_key :products, :users, column: :user_id
+    add_foreign_key :products, :conditions, column: :condition_id
+    add_foreign_key :products, :shipping_fees, column: :shipping_fee_id
+    add_foreign_key :products, :shipping_methods, column: :shipping_method_id
+    add_foreign_key :products, :prefectures, column: :prefecture_id
+    add_foreign_key :products, :deliverydays, column: :deliveryday_id
+    add_foreign_key :products, :categories, column: :category_id
   end
 end

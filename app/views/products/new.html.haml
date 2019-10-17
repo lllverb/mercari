@@ -31,11 +31,11 @@
               .null-null
                 %h5 カテゴリー
                 %span.null-false 必須
-              = f.select :category, @parents.all.map{|p| [p.name, p.id]}
+              = f.select :category_id, @parents.all.map{|p| [p.name, p.id]}
               .null-null
                 %h5 商品の状態
                 %span.null-false 必須
-              = f.select :condition, Condition.all.collect{|x|[x.content, x.id]}
+              = f.select :condition_id, Condition.all.collect{|x|[x.content, x.id]}
         .product__shipping.border-bottom
           .inner-box.choose
             .choose--left
@@ -44,19 +44,19 @@
               .null-null
                 %h5 配送料の負担
                 %span.null-false 必須
-              = f.select :shipping_fee, ShippingFee.all.collect{|x|[x.content, x.id]}
+              = f.select :shipping_fee_id, ShippingFee.all.collect{|x|[x.content, x.id]}
               .null-null
                 %h5 配送方法
                 %span.null-false 必須
-              = f.select :shipping_method, ShippingMethod.all.collect{|x|[x.content, x.id]}
+              = f.select :shipping_method_id, ShippingMethod.all.collect{|x|[x.content, x.id]}
               .null-null
                 %h5 発送元の地域
                 %span.null-false 必須
-              = f.select :prefecture, Prefecture.all.collect{|x|[x.name, x.id]}
+              = f.select :prefecture_id, Prefecture.all.collect{|x|[x.name, x.id]}
               .null-null
                 %h5 発送までの日数
                 %span.null-false 必須
-              = f.select :deliveryday, Deliveryday.all.collect{|x|[x.content, x.id]}
+              = f.select :deliveryday_id, Deliveryday.all.collect{|x|[x.content, x.id]}
         .product__price.border-bottom
           .inner-box.choose
             .choose--left
