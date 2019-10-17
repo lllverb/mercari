@@ -18,12 +18,11 @@
         もっと見る>
     .new-items-index__ledies--bottom
       %ul.items-top
-        %li.item
-        %li.item
-        %li.item
-        %li.item
-        %li.item
-      %ul.items-bottom
+        - @products.zip(@product_images).each do |product,image|
+          = image_tag("#{image.image}")
+          = product.name
+          = product.price
+        %ul.items-bottom
         %li.item
         %li.item
         %li.item
