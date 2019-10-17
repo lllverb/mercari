@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   def index
+    @products = Product.all.order('created_at DESC')
+    @product_images = ProductImage.all.order('created_at DESC')
   end
 
   def show
@@ -13,7 +15,7 @@ class ProductsController < ApplicationController
     @product.product_images.build
   end
   
-  def create 
+  def create
     @product = Product.new(product_params)
     if @product.save
       redirect_to root_path
