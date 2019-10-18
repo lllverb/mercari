@@ -2,13 +2,11 @@ html{
   height: 100vh;
   background-color: #f5f5f5;
 }
-
 .container{
   width: 80%;
   max-width: 700px;
   margin: 28px auto 0;
 }
-
 .product-container{
   background-color: #ffffff;
   &__inner{
@@ -87,21 +85,27 @@ html{
         }
       }
       .to-purchase-button{
-        width: 95%;
-        margin: 0 auto;
-          a{
-            display: block;
-            width: 100%;
-            height: 60px;
-            line-height: 60px;
-            text-decoration: none;
-            border: none;
-            background-color: $mercari_red;
-            text-align: center;
-            font-size: 26px;
-            font-weight: bold;
-            color: white;
+        input{
+          width: 95% !important;
+          margin: 0 auto !important;
+          display: block !important;
+          width: 100% !important;
+          height: 60px !important;
+          padding: 0 !important;
+          line-height: 60px !important;
+          text-decoration: none !important;
+          border: none !important;
+          background-color: $mercari_red !important;
+          text-align: center !important;
+          font-size: 26px !important;
+          font-weight: bold !important;
+          color: white !important;
+          background-image: none !important;
+          &:focus{
+            outline: 0 !important;
+            border: 0.5px solid $mercari_blue !important;  
           }
+        }
       }
       &--center{
         width: 95%;

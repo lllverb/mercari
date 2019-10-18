@@ -1,6 +1,6 @@
 document.addEventListener("turbolinks:load", function() {
   function buildChildrenSelect() {
-    childrenSelect = `<select name="product[category_children_id]" id="product_category_children_id">
+    childrenSelect = `<select id="product_category_children_id">
                       </select>`
     $('.category-second').append(childrenSelect);
   }
@@ -9,17 +9,17 @@ document.addEventListener("turbolinks:load", function() {
     $('#product_category_children_id').append(childrenOption);
   }
   function buildGrandchildrenSelect() {
-    grandchildrenSelect = `<select name="product[category_grandchildren_id]" id="product_category_grandchildren_id">
-                      </select>`
+    grandchildrenSelect =  `<select name="product[category_id]" id="product_category_grandchildren_id">
+                            </select>`
     $('.category-third').append(grandchildrenSelect);
   }
   function buildGrandchildrenOption(grandchild){
     grandchildrenOption = `<option value="${grandchild.id}">${grandchild.name}</option>`
     $('#product_category_grandchildren_id').append(grandchildrenOption);
   }
-  $(document).on('change', '#product_category_id', function(e){
+  $(document).on('change', '#product_category', function(e){
     e.preventDefault;
-    var categoryFirst = $('#product_category_id option:selected').val();
+    var categoryFirst = $('#product_category option:selected').val();
     $.ajax({
       url: 'category_children',
       type: 'GET',

@@ -1,13 +1,10 @@
-
 .mypage__header{
   height:150px;
   background: $mercari_black;
 }
-
 .mypage-area{
   background: #F5F5F5;
 }
-
 .mypage__content{
   width: 70%;
   height: 1300px;
@@ -16,7 +13,6 @@
   display: flex;
   justify-content: space-between;
 }
-
 .side-bar{
   width:280px;
   margin:0 40px 0 0;
@@ -29,7 +25,6 @@
     box-sizing: border-box;
   }
 }
-
 .side-bar-box{
   display:flex;
   align-items: center;
@@ -47,7 +42,6 @@
     }
   }
 }
-
 .side-bar--upper__menu__title{
   width:280px;
   margin:0 40px 0 0;
@@ -57,27 +51,22 @@
   box-sizing: border-box;
   font-weight: bold;
 }
-
 .side-bar--center__title,
 .side-bar--lower__title{
   margin:40px 0 0;
   font-size:16px;
   font-weight: bold;
 }
-
 .side-bar-link,
 .info-link,
 .info-index-btn{
   text-decoration: none;
 }
-
 a:link{color:$mercari_black;}
 a:visited{color:$mercari_black;}
-
 li{
   list-style: none;
 }
-
 .mypage--right{
   &__main{
     background: #ffffff;
@@ -93,34 +82,27 @@ li{
     text-align: center;
   }
 }
-
 .mypage__user-icon{
   position: relative;
   top:45px;
 }
-
 .mypage__user-name{
   position: relative;
-  // margin:0 auto;
   margin: 8px 0 0;
   font-size: 14px;
   font-weight: bold;
 }
-
 .mypage__user-status{
   margin: 8px 0 0;
 }
-
 .user-icon{
   width:60px;
   height:60px;
   border-radius: 50%;
 }
-
 .mypage__user-status span{
   font-weight: bold;
 }
-
 .mypage__tab-container__tab{
   display:flex;
   height:74px;
@@ -141,7 +123,6 @@ li{
     line-height:74px;
   }
 }
-
 .info-box{
   display:flex;
   min-height: 80px;
@@ -150,16 +131,13 @@ li{
   border-bottom: solid #F5F5F5 1px;
   box-sizing: border-box;
 }
-
 .mercari_info_icon{
   width:48px;
   height:48px;
 }
-
 .info-box-right{
   margin-left:20px;
 }
-
 .index-view-btn{
   display: block;
   height: 56px;
@@ -169,18 +147,15 @@ li{
   line-height: 56px;
   text-align: center;
 }
-
 .mypage__tab-container__lower{
   padding:16px;
   text-align: center;
 }
-
 .info-index-btn{
   height: 56px;
   background:#eeeeee;
   line-height: 56px;
 }
-
 .mypage__purchased-product__title{
   padding: 0 16px;
   box-sizing: border-box;
@@ -188,7 +163,6 @@ li{
   line-height:72px;
   font-weight: bold;
 }
-
 .mypage__purchased-product__tab-container__content__text{
   padding:60px 0 60px;
   background: #ffffff;

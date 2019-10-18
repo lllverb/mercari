@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all.order('created_at DESC')
-    @product_images = ProductImage.all.order('created_at DESC')
+    @products = Product.limit(10).order('created_at DESC')
+    @product_images = ProductImage.limit(10).order('created_at DESC')
   end
 
   def show
