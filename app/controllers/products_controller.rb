@@ -29,11 +29,11 @@ class ProductsController < ApplicationController
 
   def pay
     @product = Product.find(params[:id])
-    Payjp.api_key = 'sk_test_742b25b3c7d64d5f154f9605'
+    Payjp.api_key = ENV['TEST_SECRET_KEY']
     charge = Payjp::Charge.create(
-    :amount => @product.price,
-    :card => params['payjp-token'],
-    :currency => 'jpy',
+    amount: @product.price,
+    card: params['payjp-token'],
+    currency: 'jpy'
     )
     redirect_to products_complete_path
   end
