@@ -1,17 +1,8 @@
-*{
-  box-sizing: border-box;
-}
-body{
-}
-
 .profile{
   width: 700px;
-  // height: 800px;
   margin: 0 auto;
   text-align: center;
   background-color: #F5F5F5;
-  
-  
   &__upper{
     width: 700px;
     height: 50px;
@@ -20,7 +11,6 @@ body{
     font-weight: bold;
     background-color:white;
   }
-
   &__center{
     width: 700px;
     height: 156px;
@@ -28,28 +18,20 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    
-
-
     &__icon{
-      
       .profile_icon{
         width: 60px;
         height: 60px;
         border: 1px solid  none;
         border-radius: 50%;
-        
       }
     }
-
     &__nickname{
-
       .nickname{
         width: 220px;
         height: 48px;
         margin: 0px  0px  0px 8px;
         padding-left: 5px;
-        -webkit-border-radius:4px;
         border: 0.5px solid gray;
         &:focus{
           outline: 0;
@@ -57,20 +39,15 @@ body{
         }
       }
     }
-
   }
-
   &__lower{
     width: 700px;
     padding: 40px 0px;
     background-color: white;
-
     &__textarea{
       text-align: center;
       width: 95%;
       margin: 0 auto;
-
-      
       .introduction{
         resize: vertical;// 高さのみ広がるテキストエリア
         width: 100%;

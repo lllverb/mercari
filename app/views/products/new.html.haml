@@ -32,7 +32,7 @@
                 %h5 カテゴリー
                 %span.null-false 必須
               .category-first
-                = f.select :category_id, Category.where(ancestry: nil).map{|p| [p.name, p.id]}
+                = f.select :category, Category.where(ancestry: nil).map{|p| [p.name, p.id]}
               .category-second
               .category-third
               .null-null
