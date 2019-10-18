@@ -30,6 +30,8 @@ devise_for :users,
   resources :products do
     collection do
       post 'pay/:id' => 'products#pay', as: 'pay'
+      get 'category_children', defaults: {format:'json'}
+      get 'category_grandchildren', defaults: {format:'json'}
     end
   end
 

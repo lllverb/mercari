@@ -41,6 +41,14 @@ class ProductsController < ApplicationController
   def complete
   end
 
+  def category_children
+    @children = Category.find(params[:categoryFirst_id]).children
+  end
+
+  def category_grandchildren
+    @grandchildren = Category.find(params[:categorySecond_id]).children
+  end
+
 
   private
   def product_params

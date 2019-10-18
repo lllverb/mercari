@@ -31,7 +31,10 @@
               .null-null
                 %h5 カテゴリー
                 %span.null-false 必須
-              = f.select :category_id, Category.where(ancestry: nil).map{|p| [p.name, p.id]}
+              .category-first
+                = f.select :category_id, Category.where(ancestry: nil).map{|p| [p.name, p.id]}
+              .category-second
+              .category-third
               .null-null
                 %h5 商品の状態
                 %span.null-false 必須
