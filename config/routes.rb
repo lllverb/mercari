@@ -14,9 +14,7 @@ devise_for :users,
       get 'done' # 登録完了後のページ
     end
   end
-
   root 'products#index'
-  
 # user関係
   get 'users/logout'
   get 'users/profile'
@@ -27,7 +25,6 @@ devise_for :users,
   get 'users/newuser3'
   get 'users/credit_create'
 # user関係
- 
   resources :products, only: [:index, :show, :new, :edit, :create] 
   resources :users, only: [:index, :edit, :update]
   
