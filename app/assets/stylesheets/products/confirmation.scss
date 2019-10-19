@@ -1,0 +1,104 @@
+.exhibit-header{
+  height:128px;
+  background: #F5F5F5;
+  text-align: center;
+}
+
+.header-mercari-logo{
+  width: 185px;
+  height: 49px;
+  margin: 40px 0 0;
+}
+
+.product-container{
+  width:700px;
+  margin:0 auto;
+}
+
+.inner-box{
+  max-width:320px;
+  margin:0 auto;
+  padding:24px 0 20px;
+}
+
+.product-container--center{
+  border-bottom:solid 2px #F5F5F5;
+  &--upper{
+    display: flex;
+    .image{
+      width:64px;
+      height:64px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .product-name{
+      margin-left:20px;
+      font-weight:bold;
+    }
+  }
+  .product-price{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom:20px;
+    h1{
+      font-size:22px;
+      font-weight: bold;
+    }
+    span{
+      font-size: 14px;
+      margin:0 0 0px 10px;;
+    }
+  }
+  &--center{
+    .point-box{
+      width:100%;
+      height:50px;
+      background: #CCCCCC;
+      text-align: center;
+      line-height: 50px;
+    }
+    .payment-amount-box{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      h1{
+        font-size:28px;
+        font-weight: bold;
+      }
+    }
+  }
+  &--lower{
+    .alert-message{
+      font-size:14px;
+      color:$mercari_red;
+    }
+    input{
+      width: 100%;
+      margin-bottom: 3px;
+      padding: 0 10px;
+      border-radius: 3px;
+      line-height: 40px;
+      font-size: 18px;
+      font-weight: normal;
+      background: #888888 !important;
+      border: none !important;
+      &:focus{
+        outline: 0;
+        border: 0.5px solid $mercari_blue;
+      }  
+    }
+  }
+}
+
+.my-page-container--lower{
+  .shipping-method{
+    height:100px;
+    border-bottom:solid 2px #F5F5F5;
+  }
+  .method-payment{
+    height:100px;
+  }
+}
