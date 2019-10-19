@@ -69,11 +69,10 @@
       .to-purchase-button
         = link_to "商品の編集" ,edit_product_path, class:'button' 
       .product__submit
-        .inner-box
-          .product_text_or
-            or
-          .sell-return
-            = link_to '出品を一旦停止する', '#', method: :delete, class:'gray-button'
-          .sell-return
-            = link_to 'この商品を削除する', product_path(@product), method: :delete, class:'gray-button'
+        .product_text_or
+          or
+        .sell-return
+          = link_to '出品を一旦停止する', '#', method: :delete, class:'gray-button'
+        .sell-return
+          = link_to 'この商品を削除する', product_path(@product), method: :delete, class:'gray-button'
 .gray
