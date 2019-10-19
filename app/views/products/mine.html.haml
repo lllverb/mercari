@@ -1,0 +1,79 @@
+.my-page-container
+  .product-container
+    .product-container__inner
+      .product-container__inner--upper
+        %h2 
+          = @product.name
+        %p 
+          = "『#{@product.name}』は、216回の取引実績を持つ#{@product.user.nickname}さんから出品されました。#{@product.category.name}(ニット/セーター/レディース)の商品で、#{@product.prefecture.name}から#{@product.deliveryday.content}されます。"
+      .product-container__inner--center
+        .product-container__inner--center--left
+          .image{style: "background-image: url(#{@product.product_images[0].image})"}
+
+        .product-container__inner--center--right
+          .tablearea
+            %table
+              %tr
+                %th 出品者
+                %td 
+                  %p 
+                    = link_to @product.user.nickname, "#"
+                  %p 評価
+              %tr
+                %th カテゴリー
+                %td 
+                  %p
+                    = link_to @product.category.parent.parent.name, "#"
+                  %p
+                    = link_to @product.category.parent.name, "#"
+                  %p
+                    = link_to @product.category.name, "#"
+              %tr
+                %th ブランド
+                %td 
+              %tr
+                %th 商品のサイズ
+                %td 
+                  = @product.size.content if @product.size
+              %tr
+                %th 商品の状態
+                %td 
+                  = @product.condition.content
+              %tr
+                %th 配送料の負担
+                %td 
+                  = @product.shipping_fee.content
+              %tr
+                %th 配送の方法
+                %td 
+                  = @product.shipping_method.content
+              %tr
+                %th 配送元地域
+                %td 
+                  = link_to @product.prefecture.name, "#"
+              %tr
+                %th 発送日の目安
+                %td 
+                  = @product.deliveryday.content
+      .product-container__inner--lower
+        .product-container__inner--lower--upper
+          %h1 
+            = "￥#{@product.price.to_s(:delimited)}"
+          %span (税込)
+          %p 送料込み
+        .product-container__inner--lower--center
+          = @product.detail
+  .gray
+  .product-container
+    .product-container__inner
+      .to-purchase-button
+        = link_to "商品の編集" ,edit_product_path, class:'button' 
+      .product__submit
+        .inner-box
+          .product_text_or
+            or
+          .sell-return
+            = link_to '出品を一旦停止する', '#', method: :delete, class:'gray-button'
+          .sell-return
+            = link_to 'この商品を削除する', product_path(@product), method: :delete, class:'gray-button'
+.gray

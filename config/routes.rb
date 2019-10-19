@@ -35,6 +35,7 @@ devise_for :users,
       get 'category_grandchildren', defaults: {format:'json'}
     end
     member do
+      get 'mine'
       get 'confirmation'
     end
   end

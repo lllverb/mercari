@@ -3,7 +3,7 @@
   width: 50vw;
   max-width: 700px;
   margin: 0 auto;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   &--upper{
     text-align: center;
     padding: 5px 0;
@@ -48,6 +48,7 @@
     line-height: 50px;
     font-size: 14px;
     border-radius: 3px;
+    text-decoration: none;
     &:hover{
       cursor: pointer;
     }
