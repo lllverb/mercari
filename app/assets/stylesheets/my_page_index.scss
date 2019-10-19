@@ -14,6 +14,8 @@
   justify-content: space-between;
 }
 .side-bar{
+  a:visited{color:$mercari_black;}
+  a:link{color:$mercari_black;}
   width:280px;
   margin:0 40px 0 0;
   box-sizing: border-box;
@@ -62,8 +64,6 @@
 .info-index-btn{
   text-decoration: none;
 }
-a:link{color:$mercari_black;}
-a:visited{color:$mercari_black;}
 li{
   list-style: none;
 }

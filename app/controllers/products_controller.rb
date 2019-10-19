@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :pay]
+  before_action :set_product, only: [:show, :edit, :update, :pay, :mine, :destroy]
   def index
     ladies = Category.find_by(name: "レディース").subtree_ids
     @ladies = Product.where(category_id: ladies).limit(10).order('created_at DESC').includes(:product_images)
@@ -61,6 +61,14 @@ class ProductsController < ApplicationController
     @grandchildren = Category.find(params[:categorySecond_id]).children
   end
 
+  def mine
+  end
+
+  def destroy
+    if @product.destroy
+      redirect_to root_path
+    end 
+  end
 
   private
   def product_params
