@@ -1,8 +1,13 @@
 class ProductsController < ApplicationController
   def index
     ladies = Category.find_by(name: "レディース").subtree_ids
-    @products = Product.where(category_id: ladies).limit(10).order('created_at DESC').includes(:product_images)
-    # @product_images = ProductImage.limit(10).order('created_at DESC')
+    @ladies = Product.where(category_id: ladies).limit(10).order('created_at DESC').includes(:product_images)
+    mens = Category.find_by(name: "メンズ").subtree_ids
+    @mens = Product.where(category_id: mens).limit(10).order('created_at DESC').includes(:product_images)
+    machines = Category.find_by(name: "家電・スマホ・カメラ").subtree_ids
+    @machines = Product.where(category_id: machines).limit(10).order('created_at DESC').includes(:product_images)
+    toys = Category.find_by(name: "おもちゃ・ホビー・グッズ").subtree_ids
+    @toys = Product.where(category_id: toys).limit(10).order('created_at DESC').includes(:product_images)
   end
 
   def show
