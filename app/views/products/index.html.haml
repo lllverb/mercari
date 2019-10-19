@@ -18,7 +18,58 @@
         もっと見る>
     .new-products-index__inner--bottom
       %ul.products-top
-        - @products.each do |product|
+        - @ladies.each do |product|
+          %li.product
+            = link_to product_path(product), class: "product__link" do
+              .product__link--image{style: "background-image: url(#{product.product_images[0].image})"}
+              .product__link--price
+                = "￥#{product.price.to_s(:delimited)}"
+              .product__link--name
+                = product.name
+.new-products-index
+  .new-products-index__inner
+    .new-products-index__inner--top
+      .new-products-index__inner--top--title
+        メンズ新着アイテム
+      .new-products-index__inner--top--more
+        もっと見る>
+    .new-products-index__inner--bottom
+      %ul.products-top
+        - @mens.each do |product|
+          %li.product
+            = link_to product_path(product), class: "product__link" do
+              .product__link--image{style: "background-image: url(#{product.product_images[0].image})"}
+              .product__link--price
+                = "￥#{product.price.to_s(:delimited)}"
+              .product__link--name
+                = product.name
+.new-products-index
+  .new-products-index__inner
+    .new-products-index__inner--top
+      .new-products-index__inner--top--title
+        家電・スマホ・カメラ新着アイテム
+      .new-products-index__inner--top--more
+        もっと見る>
+    .new-products-index__inner--bottom
+      %ul.products-top
+        - @machines.each do |product|
+          %li.product
+            = link_to product_path(product), class: "product__link" do
+              .product__link--image{style: "background-image: url(#{product.product_images[0].image})"}
+              .product__link--price
+                = "￥#{product.price.to_s(:delimited)}"
+              .product__link--name
+                = product.name
+.new-products-index
+  .new-products-index__inner
+    .new-products-index__inner--top
+      .new-products-index__inner--top--title
+        おもちゃ・ホビー・グッズ新着アイテム
+      .new-products-index__inner--top--more
+        もっと見る>
+    .new-products-index__inner--bottom
+      %ul.products-top
+        - @toys.each do |product|
           %li.product
             = link_to product_path(product), class: "product__link" do
               .product__link--image{style: "background-image: url(#{product.product_images[0].image})"}
