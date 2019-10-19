@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :edit, :update, :pay]
   def index
     ladies = Category.find_by(name: "レディース").subtree_ids
     @ladies = Product.where(category_id: ladies).limit(10).order('created_at DESC').includes(:product_images)
@@ -11,7 +12,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
   end
 
 
@@ -32,9 +32,15 @@ class ProductsController < ApplicationController
 
   def edit
   end
+  
+  def update
+    if @product.user_id == current_user.id
+      @product.update(product_params)
+      redirect_to product_path(@product)
+    end
+  end
 
   def pay
-    @product = Product.find(params[:id])
     Payjp.api_key = ENV['TEST_SECRET_KEY']
     charge = Payjp::Charge.create(
     amount: @product.price,
@@ -59,6 +65,10 @@ class ProductsController < ApplicationController
   private
   def product_params
     params.require(:product).permit(:name, :detail, :category_id, :condition_id, :shipping_fee_id, :shipping_method_id, :prefecture_id, :deliveryday_id, :price, :pay, product_images_attributes:[:id,:image]).merge(user_id: current_user.id)
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
   end
 
 end

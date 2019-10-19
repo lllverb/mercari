@@ -25,6 +25,7 @@ devise_for :users,
   get 'users/credit'
   get 'users/newuser3'
   get 'users/credit_create'
+  get 'users/credit_create'
 # user関係
   get 'products/complete'
   resources :products do
