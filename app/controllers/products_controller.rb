@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.limit(10).order('created_at DESC')
-    @product_images = ProductImage.limit(10).order('created_at DESC')
+    ladies = Category.find_by(name: "レディース").subtree_ids
+    @products = Product.where(category_id: ladies).limit(10).order('created_at DESC').includes(:product_images)
+    # @product_images = ProductImage.limit(10).order('created_at DESC')
   end
 
   def show

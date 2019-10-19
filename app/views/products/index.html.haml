@@ -18,10 +18,10 @@
         もっと見る>
     .new-products-index__inner--bottom
       %ul.products-top
-        - @products.zip(@product_images).each do |product,image|
+        - @products.each do |product|
           %li.product
             = link_to product_path(product), class: "product__link" do
-              .product__link--image{style: "background-image: url(#{image.image})"}
+              .product__link--image{style: "background-image: url(#{product.product_images[0].image})"}
               .product__link--price
                 = "￥#{product.price.to_s(:delimited)}"
               .product__link--name
