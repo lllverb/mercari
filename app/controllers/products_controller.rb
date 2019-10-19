@@ -50,6 +50,10 @@ class ProductsController < ApplicationController
     redirect_to products_complete_path
   end
 
+  def confirmation
+    @product = Product.find(params[:id])
+  end
+  
   def complete
   end
 
