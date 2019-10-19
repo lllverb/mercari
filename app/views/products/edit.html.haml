@@ -1,76 +1,88 @@
-= render 'shared/header'
-.edit-container
-  .product-container__inner
-    .product-container__inner--upper
-      %h2 サマーボーダーニット
-    .product-container__inner--center
-      .product-container__inner--center--left
-        .imagekari
-      .product-container__inner--center--right
-        .tablearea
-          %table
-            %tr
-              %th 出品者
-              %td 
-                %p 
-                  = link_to "ちはや", "#"
-                %p 評価
-            %tr
-              %th カテゴリー
-              %td 
-                = link_to "レディース", "#"
-            %tr
-              %th ブランド
-              %td 
-            %tr
-              %th 商品のサイズ
-              %td S
-            %tr
-              %th 商品の状態
-              %td やや傷や汚れあり
-            %tr
-              %th 配送料の負担
-              %td 送料込み(出品者負担)
-            %tr
-              %th 配送の方法
-              %td ゆうゆうメルカリ便
-            %tr
-              %th 配送元地域
-              %td 
-                = link_to "大阪府", "#"
-            %tr
-              %th 発送日の目安
-              %td 1~2日で発送
-    .product-container__inner--lower
-      .product-container__inner--lower--upper
-        %h1.price ￥999
-        %span.price (税込)
-        %p.price 送料込み
-      .product-container__inner--lower--center.text
-        ドルマンニットです。
-        %br
-        サマーニットなので涼しいです。
-        %br
-        体のラインを拾わず体型カバーできます。
-        %br
-        Sですが普段Lの方でも着れそうな気がします。
-        %br
-      .to-purchase-button
-        = link_to "商品の編集"
-        %br
-        %h2.or or
-      .to-edit-button
-        = link_to "出品を一旦停止する", "#"
-        %br
-      .to-delete-button
-        = link_to "この商品を削除する", "#"
-  .edit-container__fotter
-    %p.edit_coment
-      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-    .edit-container__fotter__coment
-      = form_for "" do |f|
-        = f.text_area :detail,class: "product_coment"
-    .to-coment-button
-      = link_to "コメントする", "#"
-= render 'shared/main_footer'
-
+.my-page-container
+  .sell-form
+    .my-page-container--upper
+      %h2 商品の情報を入力
+    .my-page-container--lower
+      = form_with model: @product do |f|
+        .product__images.border-bottom
+          .inner-box
+            .null-null
+              %h5 出品画像
+              %span.null-false 必須
+            最大10枚までアップロードできます
+            .image-area
+              = f.fields_for :product_images do |i|
+                = i.file_field :image
+        .product__name.border-bottom
+          .inner-box
+            .null-null
+              %h5 商品名
+              %span.null-false 必須
+            = f.text_field :name, placeholder: "商品名(必須40文字まで)"
+            .null-null
+              %h5 商品の説明
+              %span.null-false 必須
+            = f.text_area :detail, placeholder: "商品の説明(必須1,000文字以内)(色、素材、重さ、定価、注意点など)　例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        .product__category.border-bottom
+          .inner-box.choose
+            .choose--left
+              %p 商品の詳細
+            .choose--right
+              .null-null
+                %h5 カテゴリー
+                %span.null-false 必須
+              .category-first
+                = f.select :category, @product.category.root.siblings.map{|p| [p.name, p.id]}
+              .category-second
+                = f.select :category, @product.category.parent.siblings.map{|p| [p.name, p.id]}
+              .category-third
+                = f.select :category_id, @product.category.siblings.map{|p| [p.name, p.id]}
+              .null-null
+                %h5 商品の状態
+                %span.null-false 必須
+              = f.select :condition_id, Condition.all.collect{|x|[x.content, x.id]}
+        .product__shipping.border-bottom
+          .inner-box.choose
+            .choose--left
+              %p 配送について
+            .choose--right
+              .null-null
+                %h5 配送料の負担
+                %span.null-false 必須
+              = f.select :shipping_fee_id, ShippingFee.all.collect{|x|[x.content, x.id]}
+              .null-null
+                %h5 配送方法
+                %span.null-false 必須
+              = f.select :shipping_method_id, ShippingMethod.all.collect{|x|[x.content, x.id]}
+              .null-null
+                %h5 発送元の地域
+                %span.null-false 必須
+              = f.select :prefecture_id, Prefecture.all.collect{|x|[x.name, x.id]}
+              .null-null
+                %h5 発送までの日数
+                %span.null-false 必須
+              = f.select :deliveryday_id, Deliveryday.all.collect{|x|[x.content, x.id]}
+        .product__price.border-bottom
+          .inner-box.choose
+            .choose--left
+              %p 販売価格(300~9,999,999)
+            .choose--right
+              .null-null
+                %h5 価格
+                %span.null-false 必須
+                = f.text_field :price, placeholder: "例)300", class: "price"
+              .center
+                .center--left
+                  %h4 販売手数料
+                .center--right
+                  %p -
+              .lower
+                .lower--left
+                  %h4 販売利益
+                .lower--right
+                  %p -
+        .product__submit
+          .inner-box
+            = f.submit "変更する", class: "sell-button"
+            .sell-return
+              = link_to "キャンセル", class: "sell-return"
