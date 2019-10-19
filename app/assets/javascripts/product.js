@@ -1,5 +1,5 @@
-$(function(){
-  $('.price').on('input', function(){   //リアルタイムで表示したいのでinputを使う｡入力の度にイベントが発火するようになる｡
+document.addEventListener("turbolinks:load", function() {
+  function setPrices(){
     var data = $('.price').val(); // val()でフォームのvalueを取得(数値)
     if( 300 <= data && data <= 9999999) {
       var profit = Math.round(data * 0.9)  // 手数料計算を行う｡dataにかけているのが0.9なのは単に引きたい手数料が10%のため｡
@@ -17,8 +17,9 @@ $(function(){
     $('.center--right').html('-');
     $('.lower--right').html('-');
     }
+  }
+  $('.price').on('input', function(){   //リアルタイムで表示したいのでinputを使う｡入力の度にイベントが発火するようになる｡
+      setPrices();
   })
+  setPrices();
 })
-
-
-

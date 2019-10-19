@@ -34,7 +34,7 @@
               .category-first
                 = f.select :category, @product.category.root.siblings.map{|p| [p.name, p.id]}
               .category-second
-                = f.select :category, @product.category.parent.siblings.map{|p| [p.name, p.id]}
+                = f.select :category_children_id, @product.category.parent.siblings.map{|p| [p.name, p.id]}
               .category-third
                 = f.select :category_id, @product.category.siblings.map{|p| [p.name, p.id]}
               .null-null

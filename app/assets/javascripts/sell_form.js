@@ -21,7 +21,7 @@ document.addEventListener("turbolinks:load", function() {
     e.preventDefault;
     var categoryFirst = $('#product_category option:selected').val();
     $.ajax({
-      url: 'category_children',
+      url: '/products/category_children',
       type: 'GET',
       dataType: 'json',
       data: {categoryFirst_id: categoryFirst}
@@ -42,7 +42,7 @@ document.addEventListener("turbolinks:load", function() {
     e.preventDefault;
     var categorySecond = $('#product_category_children_id option:selected').val();
     $.ajax({
-      url: 'category_grandchildren',
+      url: '/products/category_grandchildren',
       type: 'GET',
       dataType: 'json',
       data: {categorySecond_id: categorySecond}
