@@ -70,7 +70,7 @@
       }
     }
   }
-  .product-container--center--lower{
+  &--lower{
     .alert-message{
       font-size:14px;
       color:$mercari_red;
@@ -92,7 +92,6 @@
     }
   }
 }
-
 
 .my-page-container--lower{
   .shipping-method{
