@@ -1,0 +1,37 @@
+.exhibit-header
+  = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3466462615", class: 'header-mercari-logo'
+.product-container
+  .product-container--upper
+    .my-page-container--upper
+      %h2 購入内容の確認
+  .product-container--center
+    .inner-box
+      .product-container--center--upper
+        .image{style: "background-image: url(#{@product.product_images[0].image})"}
+        .product-name
+          = @product.name
+      .product-price
+        %h1
+          = "￥#{@product.price.to_s(:delimited)}"
+        %span
+          送料込み
+      .product-container--center--center
+        .point-box
+          ポイントはありません
+        .payment-amount-box
+          支払い金額
+          %h1
+            = "￥#{@product.price.to_s(:delimited)}"
+      .product-container--center--lower
+        .alert-message
+          配送先と支払い方法の入力を完了してください。
+        .to-purchase-button
+          = form_tag(action: :pay, method: :post) do
+            %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript", "data-text": "購入する", "data-key": ENV['TEST_PUBLIC_KEY']} 
+  .my-page-container--lower
+    .shipping-method
+      .inner-box
+        配送先
+    .method-payment
+      .inner-box
+        支払い方法

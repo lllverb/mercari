@@ -33,6 +33,9 @@ devise_for :users,
       get 'category_children', defaults: {format:'json'}
       get 'category_grandchildren', defaults: {format:'json'}
     end
+    member do
+      get 'confirmation'
+    end
   end
 
   resources :users, only: [:index, :edit, :update]
