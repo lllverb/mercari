@@ -1,11 +1,11 @@
 .footer-pan{
   border-top: 0.5px solid #eeeeee;
-  font-size: 10px;
-  height: 30px;
+  font-size: 14px;
+  height: 50px;
   &--inner{
-    width: 600px;
+    width: 70%;
     margin: 0 auto;
-    line-height: 30px;
+    line-height: 50px;
     ul{
       display: flex;
       a{
@@ -18,8 +18,10 @@
       }
       li{
         padding-right: 5px;
-        span{
-          font-weight: bold;
+        font-weight: bold;
+        p{
+          padding:0 5px;
+          font-weight: normal;
         }
       }
     }
