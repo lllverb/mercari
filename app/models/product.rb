@@ -8,6 +8,8 @@ class Product < ApplicationRecord
   belongs_to :shipping_method
   belongs_to :deliveryday
   has_many   :product_images,dependent: :delete_all
+  has_many   :purchases 
+  has_many   :users, through: :purchases
   accepts_nested_attributes_for :product_images, allow_destroy: true
 
 end
