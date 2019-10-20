@@ -2,13 +2,13 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :pay, :mine, :destroy]
   def index
     ladies = Category.find_by(name: "レディース").subtree_ids
-    @ladies = Product.where(category_id: ladies).limit(10).order('created_at DESC').includes(:product_images)
+    @ladies = Product.where(category_id: ladies).where(status: "出品中").limit(10).order('created_at DESC').includes(:product_images)
     mens = Category.find_by(name: "メンズ").subtree_ids
-    @mens = Product.where(category_id: mens).limit(10).order('created_at DESC').includes(:product_images)
+    @mens = Product.where(category_id: mens).where(status: "出品中").limit(10).order('created_at DESC').includes(:product_images)
     machines = Category.find_by(name: "家電・スマホ・カメラ").subtree_ids
-    @machines = Product.where(category_id: machines).limit(10).order('created_at DESC').includes(:product_images)
+    @machines = Product.where(category_id: machines).where(status: "出品中").limit(10).order('created_at DESC').includes(:product_images)
     toys = Category.find_by(name: "おもちゃ・ホビー・グッズ").subtree_ids
-    @toys = Product.where(category_id: toys).limit(10).order('created_at DESC').includes(:product_images)
+    @toys = Product.where(category_id: toys).where(status: "出品中").limit(10).order('created_at DESC').includes(:product_images)
   end
 
   def show
