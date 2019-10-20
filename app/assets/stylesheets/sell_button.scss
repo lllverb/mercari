@@ -1,0 +1,30 @@
+.circle_sell_button{
+  position: fixed;
+  right:50px;
+  bottom:50px;
+  height:180px;
+  &:hover{
+    animation: glitch .1s both infinite;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  12.5% {
+    transform: translate(-1px, 1px);
+  }
+  37.5% {
+    transform: translate(-1px, -1px);
+  }
+  62.5% {
+    transform: translate(1px, 1px);
+  }
+  87.5% {
+    transform: translate(1px, -1px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
