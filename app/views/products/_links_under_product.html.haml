@@ -1,9 +1,12 @@
 .links-container
   .links-container--left
-    = link_to ", ""#" do
-      %span <
-      %p CHANEL シャネル アイシャドウ
+    - if @product.next.present?
+      = link_to product_path(@product.next) do
+        = fa_icon('chevron-left')
+        = @product.next.name
   .links-container--right
-    = link_to ", ""#" do
-      %p 「アイドルマスター SideM」THE IDOLM@STER SideM ST…
-      %span >
+    - if @product.previous.present?
+      = link_to product_path(@product.previous) do
+        = @product.previous.name
+        = fa_icon('chevron-right')
+
