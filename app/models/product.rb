@@ -20,4 +20,12 @@ class Product < ApplicationRecord
     Product.where("id > ?",id).order("id DESC").first
   end
 
+  def previous
+    Product.where("id < ?",id).order("id DESC").first
+  end
+
+  def next
+    Product.where("id > ?", id).order("id ASC").first
+  end
+
 end

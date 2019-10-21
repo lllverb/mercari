@@ -8,19 +8,24 @@ class SignupController < ApplicationController
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
     session[:password_confirmation] = user_params[:password_confirmation]
-    session[:last_name] = user_params[:last_name]
-    session[:first_name] = user_params[:first_name]
-    session[:last_name_kana] = user_params[:last_name_kana]
-    session[:first_name_kana] = user_params[:first_name_kana]
     @user = User.new
   end
-
+  
   def step3
     session[:phone_number] = user_params[:phone_number]
     @user = User.new
   end
-
+  
   def step4
+    session[:last_name] = user_params[:last_name]
+    session[:first_name] = user_params[:first_name]
+    session[:last_name_kana] = user_params[:last_name_kana]
+    session[:first_name_kana] = user_params[:first_name_kana]
+    session[:postal_code] = user_params[:postal_code]
+    session[:prefecture] = user_params[:prefecture]
+    session[:city] = user_params[:city]
+    session[:house_number] = user_params[:house_number]
+    session[:building_name] = user_params[:building_name]
     @user = User.new
   end
 
@@ -35,6 +40,11 @@ class SignupController < ApplicationController
       last_name_kana: session[:last_name_kana],
       first_name_kana: session[:first_name_kana],
       phone_number: session[:phone_number],
+      postal_code: session[:postal_code],
+      prefecture: session[:prefecture],
+      city: session[:city],
+      house_number: session[:house_number],
+      building_name: session[:building_name]
     )
 
     if @user.save
@@ -63,6 +73,13 @@ class SignupController < ApplicationController
       :first_name_kana,
       :profile_image,
       :phone_number,
+      :house_number,
+      :building_name
+    )
+    .merge(
+      postal_code: params[:zip01],
+      prefecture: params[:pref01],
+      city: params[:addr01]      
     )
   end
 end

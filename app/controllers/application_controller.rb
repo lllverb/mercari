@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :profile_image, :first_name, :last_name, :first_name_kana, :last_name_kana, :phone_number])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :profile_image, :first_name, :last_name, :first_name_kana, :last_name_kana, :phone_number, :postal_code, :prefecture, :city, :house_number, :building_name])
   end
 
   def set_categories
