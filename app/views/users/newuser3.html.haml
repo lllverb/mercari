@@ -24,15 +24,15 @@
               .null-null
                 %h5 郵便番号
                 %span.null-false 必須
-              = f.email_field :email, placeholder: "例)123-4567"
+              = f.text_field :postal_code, :maxlength => "8", :name => "zip01", :onkeyup => "AjaxZip3.zip2addr(this,'','pref01','addr01');", :size => "10", :type => "text"
               .null-null
                 %h5 都道府県
                 %span.null-false 必須
-              = f.password_field :password, placeholder: "選ばせる"
+              = f.text_field :prefecture, :name => "pref01", :size => "20", :type => "text"
               .null-null
                 %h5 市区町村
                 %span.null-false 必須
-              = f.password_field :password, placeholder: "例)横浜市緑区"
+              = f.text_field :city, :name => "addr01", :size => "60", :type => "text"
               .null-null
                 %h5 番地 
                 %span.null-false 必須

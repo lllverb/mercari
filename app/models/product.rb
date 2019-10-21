@@ -12,4 +12,12 @@ class Product < ApplicationRecord
   has_many   :users, through: :purchases
   accepts_nested_attributes_for :product_images, allow_destroy: true
 
+  def previous
+    Product.where("id < ?",id).order("id DESC").first
+  end
+
+  def next
+    Product.where("id > ?", id).order("id ASC").first
+  end
+
 end
