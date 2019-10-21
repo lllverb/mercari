@@ -17,13 +17,13 @@
         .null-null
           %h5 パスワード
           %span.null-false 必須
-        = f.password_field :password, placeholder: "7文字以上"
+        = f.password_field :password, placeholder: "7文字以上", minlength: '7'
         .null-null
           %h5 パスワード（確認）
           %span.null-false 必須
         = f.password_field :password_confirmation, placeholder: "7文字以上"
         私はロボットではありませんボックス
-        = f.submit "次へ進む", class: 'button'
+        = f.submit "次へ進む", class: 'button to-step2-button'
       = link_to do
         %h6 本人情報の登録について
         %span >

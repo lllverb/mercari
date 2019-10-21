@@ -17,15 +17,15 @@
         .null-null
           %h5 郵便番号
           %span.null-false 必須
-        = f.text_field :postal_code, :name => "zip01", :maxlength => "8", :onkeyup => "AjaxZip3.zip2addr(this,'','pref01','addr01');", :size => "10", :type => "text"
+        = f.text_field :postal_code, name: "zip01", maxlength: "8", onkeyup: "AjaxZip3.zip2addr(this,'','pref01','addr01');", size: "10", type: "text"
         .null-null
           %h5 都道府県
           %span.null-false 必須
-        = f.text_field :prefecture, :name => "pref01", :size => "20", :type => "text"
+        = f.text_field :prefecture, name: "pref01", size: "20", type: "text"
         .null-null
           %h5 市区町村
           %span.null-false 必須
-        = f.text_field :city, :name => "addr01", :size => "60", :type => "text"
+        = f.text_field :city, name: "addr01", size: "60", type: "text"
         .null-null
           %h5 番地 
           %span.null-false 必須
@@ -34,4 +34,4 @@
           %h5 建物名 
           %span.null-true 任意
         = f.text_field :building_name, placeholder: "例)柳ビル103"
-        = f.button "次へ進む", class:"button"
+        = f.button "次へ進む", class:"button to-step4-button"
