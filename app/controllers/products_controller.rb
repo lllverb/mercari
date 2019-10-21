@@ -12,8 +12,8 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @others_of_user = Product.where(user_id: @product.user_id).limit(6)
-    @others_of_category = Product.where(category_id: @product.category_id).limit(6)
+    @others_of_user = Product.where(user_id: @product.user_id).where.not(id: @product.id).limit(6)
+    @others_of_category = Product.where(category_id: @product.category_id).where.not(id: @product.id).limit(6
   end
 
 
