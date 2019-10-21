@@ -17,7 +17,7 @@
         .null-null
           %h5 パスワード
           %span.null-false 必須
-        = f.password_field :password, placeholder: "7文字以上"
+        = f.password_field :password, placeholder: "7文字以上", minlength: '7'
         .null-null
           %h5 パスワード（確認）
           %span.null-false 必須
