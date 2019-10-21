@@ -4,9 +4,21 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
-         has_many :products
-         has_many :purchases
-         has_many :products, through: :purchases
+  has_many :products
+  has_many :purchases
+  has_many :products, through: :purchases
+  validates :nickname, presence: true, length: {maximum: 8}
+  validates :email, presence: true
+  validates :password, presence: true, length: {minimum: 7}
+  validates :last_name, presence: true
+  validates :first_name, presence: true
+  validates :last_name_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/, message: 'はカタカナで入力して下さい。'}
+  validates :first_name_kana, presence: true, format: {with: /\A[ァ-ヶー－]+\z/, message: 'はカタカナで入力して下さい。'}
+  validates :phone_number, presence: true, format: {with: /\A\d{10,11}\z/, message: 'は半角数字(10ケタor11ケタ)で入力してください'}
+  validates :postal_code, presence: true, format: {with: /\A\d{7}\z/, message: 'は半角数字7ケタ(ハイフン無し)で入力してください。'}
+  validates :prefecture, presence: true
+  validates :city, presence: true
+  validates :house_number, presence: true
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
