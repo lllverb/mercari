@@ -2,8 +2,16 @@
   .footer-pan--inner
     %ul
       %li.mercari 
-        = link_to "メルカリ"
-      %li >
+        = link_to "メルカリ", root_path
       %li 
-        %span 
-          = @product.category.name
+        %p >
+      %li
+        = @product.category.parent.parent.name
+      %li 
+        %p >
+      %li 
+        = @product.category.parent.name
+      %li 
+        %p >
+      %li
+        = @product.category.name

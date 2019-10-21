@@ -1,9 +1,11 @@
 .links-container
   .links-container--left
+    - if @product.next.present?
+      = link_to product_path(@product.next) do
+        = fa_icon('chevron-left')
+        = @product.next.name
+  .links-container--right
     - if @product.previous.present?
       = link_to product_path(@product.previous) do
         = @product.previous.name
-  .links-container--right
-    - if @product.next.present?
-      = link_to product_path(@product.next) do
-        = @product.next.name
+        = fa_icon('chevron-right')
