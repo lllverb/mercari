@@ -21,9 +21,9 @@ class SignupController < ApplicationController
     session[:first_name] = user_params[:first_name]
     session[:last_name_kana] = user_params[:last_name_kana]
     session[:first_name_kana] = user_params[:first_name_kana]
-    session[:postal_code] = user_params[:zip01]
-    session[:prefecture] = user_params[:pref01]
-    session[:city] = user_params[:addr01]
+    session[:postal_code] = user_params[:postal_code]
+    session[:prefecture] = user_params[:prefecture]
+    session[:city] = user_params[:city]
     session[:house_number] = user_params[:house_number]
     session[:building_name] = user_params[:building_name]
     @user = User.new
@@ -45,7 +45,6 @@ class SignupController < ApplicationController
       city: session[:city],
       house_number: session[:house_number],
       building_name: session[:building_name]
-      binding.pry
     )
 
     if @user.save
@@ -74,11 +73,13 @@ class SignupController < ApplicationController
       :first_name_kana,
       :profile_image,
       :phone_number,
-      :zip01,
-      :pref01,
-      :addr01,
       :house_number,
       :building_name
+    )
+    .merge(
+      postal_code: params[:zip01],
+      prefecture: params[:pref01],
+      city: params[:addr01]      
     )
   end
 end
