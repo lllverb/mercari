@@ -36,13 +36,13 @@ document.addEventListener("turbolinks:load", function() {
     }
   })
   $(document).on('click', '.to-step4-button', function() {
-    if (!$("#user_last_name_kana").val().match(/\A[ァ-ヶー－]+\z/) || !$("#user_first_name_kana").val().match(/\A[ァ-ヶー－]+\z/) ){
+    if (!$("#user_last_name_kana").val().match(/^([ァ-ン]|ー)+$/) || !$("#user_first_name_kana").val().match(/^([ァ-ン]|ー)+$/) ){
       alert('ふりがなはカタカナやで');
       return false;
     }
   })
   $(document).on('click', '.to-step4-button', function() {
-    if (!$("#user_postal_code").val().match(/\A\d{7}\z/)){
+    if (!$("#user_postal_code").val().match(/^[0-9]+$/)){
       alert('郵便番号は半角数字7ケタやで');
       return false;
     }
