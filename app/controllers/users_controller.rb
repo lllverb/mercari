@@ -20,6 +20,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def exhibiting
+    @products = Product.where(user_id: current_user.id).where(status: '出品中')
+  end
+  def trading
+    @products = Product.where(user_id: current_user.id).where(status: '取引中')
+  end
+  def sold
+    @products = Product.where(user_id: current_user.id).where(status: '売却済み')
+  end
+
   private
 
   def user_params

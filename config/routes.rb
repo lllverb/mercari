@@ -14,7 +14,13 @@ devise_for :users,
       get 'done' # 登録完了後のページ
     end
   end
-
+  resources :users do
+    member do
+      get 'exhibiting'
+      get 'trading'
+      get 'sold'
+    end
+  end
   root 'products#index'
 # user関係
   get 'users/logout'
@@ -35,7 +41,6 @@ devise_for :users,
       get 'category_grandchildren', defaults: {format:'json'}
     end
     member do
-      get 'mine'
       get 'confirmation'
     end
   end
