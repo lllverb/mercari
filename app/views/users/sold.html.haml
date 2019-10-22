@@ -1,0 +1,23 @@
+= render 'shared/header'
+= render 'shared/sell_button'
+.mypage-area
+  .mypage__content
+    .mypage--left
+      =render "side_bar"
+    .mypage--right
+      .mypage--right__main
+        .mypage__tab-container
+          .my-products
+            出品した商品
+          .mypage__tab-container__tab
+            = link_to exhibiting_user_path(current_user.id) do
+              .mypage__tab-container__tab--right
+                出品中
+            = link_to trading_user_path(current_user.id) do
+              .mypage__tab-container__tab--right
+                取引中
+            = link_to sold_user_path(current_user.id) do
+              .mypage__tab-container__tab--left
+                売却済み
+          = render 'mines', products: @products
+= render 'shared/main_footer'
