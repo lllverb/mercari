@@ -15,24 +15,23 @@ devise_for :users,
     end
   end
   resources :users do
-    member do
+    collection do
+      get 'logout'
+      get 'profile'
+      get 'phone_number'
+      get 'mail_password'
+      get 'personal_information'
+      get 'credit'
+      get 'newuser3'
+      get 'credit_create'
       get 'exhibiting'
       get 'trading'
       get 'sold'
+      get 'bought'
+      get 'ago'
     end
   end
   root 'products#index'
-# user関係
-  get 'users/logout'
-  get 'users/profile'
-  get 'users/phone_number'
-  get 'users/mail_password'
-  get 'users/personal_information'
-  get 'users/credit'
-  get 'users/newuser3'
-  get 'users/credit_create'
-  get 'users/credit_create'
-# user関係
   get 'products/complete'
   resources :products do
     collection do
@@ -45,6 +44,5 @@ devise_for :users,
     end
   end
 
-  resources :users, only: [:index, :edit, :update]
   
 end

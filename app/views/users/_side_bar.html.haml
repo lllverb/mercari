@@ -1,6 +1,6 @@
 .side-bar
   .side-bar--upper
-    = link_to root_path ,class: 'side-bar-link' do
+    = link_to users_path ,class: 'side-bar-link' do
       .side-bar-box
         %li.side-bar--upper__menu マイページ
         = fa_icon('chevron-right')
@@ -20,23 +20,23 @@
       .side-bar-box
         %li.side-bar--upper__menu 出品する
         = fa_icon('chevron-right')
-    = link_to exhibiting_user_path(current_user.id) ,class: 'side-bar-link' do
+    = link_to exhibiting_users_path ,class: 'side-bar-link' do
       .side-bar-box
         %li.side-bar--upper__menu 出品した商品-出品中
         = fa_icon('chevron-right')
-    = link_to trading_user_path(current_user.id) ,class: 'side-bar-link' do
+    = link_to trading_users_path ,class: 'side-bar-link' do
       .side-bar-box
         %li.side-bar--upper__menu 出品した商品-取引中
         = fa_icon('chevron-right')
-    = link_to sold_user_path(current_user.id) ,class: 'side-bar-link' do
+    = link_to sold_users_path ,class: 'side-bar-link' do
       .side-bar-box
         %li.side-bar--upper__menu 出品した商品-売却済み
         = fa_icon('chevron-right')
-    = link_to root_path ,class: 'side-bar-link' do
+    = link_to bought_users_path ,class: 'side-bar-link' do
       .side-bar-box
         %li.side-bar--upper__menu 購入した商品-取引中
         = fa_icon('chevron-right')
-    = link_to root_path ,class: 'side-bar-link' do
+    = link_to ago_users_path ,class: 'side-bar-link' do
       .side-bar-box
         %li.side-bar--upper__menu 購入した商品-過去の取引
         = fa_icon('chevron-right')
@@ -70,31 +70,31 @@
   .side-bar--lower
     .side-bar--lower__title
       設定
-    = link_to users_profile_path(current_user) ,class: 'side-bar-link' do
+    = link_to profile_users_path ,class: 'side-bar-link' do
       .side-bar-box
         %li.side-bar--upper__menu プロフィール
         = fa_icon('chevron-right')
-    = link_to users_newuser3_path ,class: 'side-bar-link' do
+    = link_to newuser3_users_path ,class: 'side-bar-link' do
       .side-bar-box
         %li.side-bar--upper__menu 発送元・お届け先住所変更
         = fa_icon('chevron-right')
-    = link_to users_credit_path ,class: 'side-bar-link' do
+    = link_to credit_users_path ,class: 'side-bar-link' do
       .side-bar-box
         %li.side-bar--upper__menu 支払い方法
         = fa_icon('chevron-right')
-    = link_to users_mail_password_path ,class: 'side-bar-link' do
+    = link_to mail_password_users_path ,class: 'side-bar-link' do
       .side-bar-box
         %li.side-bar--upper__menu メール/パスワード
         = fa_icon('chevron-right')
-    = link_to users_personal_information_path ,class: 'side-bar-link' do
+    = link_to personal_information_users_path ,class: 'side-bar-link' do
       .side-bar-box
         %li.side-bar--upper__menu 本人情報
         = fa_icon('chevron-right')
-    = link_to users_phone_number_path ,class: 'side-bar-link' do
+    = link_to phone_number_users_path ,class: 'side-bar-link' do
       .side-bar-box
         %li.side-bar--upper__menu 電話番号の確認
         = fa_icon('chevron-right')
-    = link_to users_logout_path ,class: 'side-bar-link' do
+    = link_to logout_users_path ,class: 'side-bar-link' do
       .side-bar-box
         %li.side-bar--upper__menu ログアウト
         = fa_icon('chevron-right')

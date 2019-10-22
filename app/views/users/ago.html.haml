@@ -1,0 +1,39 @@
+= render 'shared/header'
+= render 'shared/sell_button'
+.mypage-area
+  .mypage__content
+    .mypage--left
+      =render "side_bar"
+    .mypage--right
+      .mypage--right__main
+        .mypage__tab-container
+          .mine
+            .my-products
+              購入した商品
+            .mypage__tab-container__tab
+              .bought
+                = link_to bought_users_path do
+                  .mypage__tab-container__tab--gray
+                    取引中
+                = link_to ago_users_path do
+                  .mypage__tab-container__tab--red
+                    過去の取引
+            .mypage__tab-container__info
+              - @products.each do |product|
+                = link_to product_path(product.product), class:'info-link'  do
+                  .info-box
+                    .info-icon
+                      .mercari_info_icon{style: "background-image: url(#{product.product.product_images[0].image})"}
+                    .info-box-right
+                      .info-message
+                        = product.product.name
+                      .lower
+                        = fa_icon('heart-o')
+                        .howmany
+                          1
+                        = fa_icon('comment-o')
+                        .howmany
+                          1
+                        .info-status
+                          = product.product.status
+= render 'shared/main_footer'
