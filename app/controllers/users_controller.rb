@@ -20,6 +20,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def exhibiting
+    @products = Product.where(user_id: current_user.id).where(status: '出品中').includes(:product_images)
+  end
+  def trading
+    @products = Product.where(user_id: current_user.id).where(status: '取引中').includes(:product_images)
+  end
+  def sold
+    @products = Product.where(user_id: current_user.id).where(status: '売却済み').includes(:product_images)
+  end
+  
+  def bought
+    @products = Purchase.where(user_id: current_user.id).includes(:product)
+  end
+  def ago
+    @products = Purchase.where(user_id: current_user.id).includes(:product)
+  end
   private
 
   def user_params

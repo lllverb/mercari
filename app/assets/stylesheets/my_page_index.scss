@@ -7,7 +7,6 @@
 }
 .mypage__content{
   width: 70%;
-  height: 1300px;
   padding:40px 0;
   margin: auto;
   display: flex;
@@ -70,10 +69,15 @@ li{
 .mypage--right{
   &__main{
     background: #ffffff;
-    height:65%;
     width:700px;
     margin-bottom:50px;
-    overflow: scroll;
+    .my-products{
+      height: 72px;
+      font-size: 16px;
+      line-height: 72px;
+      padding-left: 15px;
+      font-weight: bold;
+    }
   }
   &--upper{
     height:200px;
@@ -129,14 +133,25 @@ li{
   padding: 16px;
   color: $mercari_black;
   border-bottom: solid #F5F5F5 1px;
-  box-sizing: border-box;
 }
 .mercari_info_icon{
   width:48px;
   height:48px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .info-box-right{
   margin-left:20px;
+  .lower{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #888888;
+    .howmany{
+      padding-right: 10px;
+    }
+  }
 }
 .index-view-btn{
   display: block;
@@ -168,4 +183,56 @@ li{
   background: #ffffff;
   text-align:center;
   color:#cccccc;
+}
+
+.info-status{
+  width: 55px;
+  padding: 0 5px;
+  background-color: $mercari_blue;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  border-radius: 3px;
+}
+
+.mine{
+  .mypage__tab-container__tab{
+    .three{
+      display: flex;
+      width: 100%;
+      a{
+        width: 33.3333%;
+      }
+    }
+    a{
+      display: block;
+      color: $mercari_black;
+      text-decoration: none;
+      .mypage__tab-container__tab--red{
+        background: #ffffff;
+        text-align: center;
+        line-height:72px;
+        border-top:solid red 2px;
+        box-sizing: border-box;
+      }
+      .mypage__tab-container__tab--gray{
+        background: #eeeeee;
+        text-align: center;
+        line-height:74px;
+      }
+    }
+    .bought{
+      display: flex;
+      width: 100%;
+      a{
+        width: 50%;
+      }
+    }
+  }
+  .mypage__tab-container__info{
+    a{
+      width: 100%;
+    }
+  }
 }
