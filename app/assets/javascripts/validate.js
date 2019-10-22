@@ -1,30 +1,50 @@
-// $(function(){
-//   $('.button').on('click', function(){
-//     if($('#user_nickname').val() === ''){
-//       $('#user_nickname').css("background","pink")
-//       alert('名前を入力してください！');
-//       $('#user_nickname').focus();
-//       return false;
-//     }
-//     alert('送信完了！');
-//   });
-// });
-
-$(function(){
-  $('.button').on('click', function(){
-    let isEmpty = false;
-    jQuery('#user_nickname, #user_email, #user_password, #user_password_confirmation').each(function(){
-      if(jQuery(this).val() === ''){
-        alert('必須項目が入力されていません！');
-        $('#user_nickname, #user_email, #user_password, #user_password_confirmation').css({"height":"100px","width":"300px", "background":"pink" ,"border":"solid 2px red"})
-        $(this).focus();
-        isEmpty = true;
-        return false;
-      }
-    });
-    if(isEmpty)
+document.addEventListener("turbolinks:load", function() {
+  $(document).on('click', '.to-step2-button', function() {
+    if ($("#user_nickname").val() == "" ||
+        $("#user_email").val() == ""||
+        $("#user_password").val() == ""||
+        $("#user_password_confirmation").val() == "")
+      {
+      alert('全部埋めるんやで');
       return false;
-    else
-      alert('送信完了！');
-  });
-});
+    } 
+  })
+  $(document).on('click', '.to-step2-button', function() {
+    if ($("#user_password").val() != $("#user_password_confirmation").val()){
+      alert('確認パスワードがちゃうで');
+      return false;
+    }
+  })
+  $(document).on('click', '.to-step3-button', function() {
+    if (!$("#user_phone_number").val().match(/^\d{10}$|^\d{11}$/)){
+      alert('電話番号は半角数字(ハイフン無し)やで');
+      return false;
+    }
+  })
+  $(document).on('click', '.to-step4-button', function() {
+    if ($("#user_last_name").val() == "" ||
+        $("#user_first_name").val() == ""||
+        $("#user_last_name_kana").val() == ""||
+        $("#user_first_name_kana").val() == ""||
+        $("#user_postal_code").val() == ""||
+        $("#user_prefecture").val() == ""||
+        $("#user_city").val() == ""||
+        $("#user_house_number").val() == "")
+      {
+      alert('必須は全部埋めるんやで');
+      return false;
+    }
+  })
+  $(document).on('click', '.to-step4-button', function() {
+    if (!$("#user_last_name_kana").val().match(/\A[ァ-ヶー－]+\z/) || !$("#user_first_name_kana").val().match(/\A[ァ-ヶー－]+\z/) ){
+      alert('ふりがなはカタカナやで');
+      return false;
+    }
+  })
+  $(document).on('click', '.to-step4-button', function() {
+    if (!$("#user_postal_code").val().match(/\A\d{7}\z/)){
+      alert('郵便番号は半角数字7ケタやで');
+      return false;
+    }
+  })
+})
