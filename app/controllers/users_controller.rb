@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def exhibiting
-    @products = Product.where(user_id: current_user.id).where(status: '出品中').includes(:product_images)
+    @products = Product.where(user_id: current_user.id).where(status: ['出品中',"公開停止中"]).includes(:product_images)
   end
   def trading
     @products = Product.where(user_id: current_user.id).where(status: '取引中').includes(:product_images)

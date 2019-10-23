@@ -15,4 +15,15 @@
             .howmany
               1
             .info-status
-              = product.status
+              - if product.status == "出品中"
+                .info-status__exhibit
+                  =product.status
+              - if product.status == "公開停止中"
+                .info-status__stop
+                  =product.status
+              - if product.status == "取引中"
+                .info-status__trading
+                  =product.status
+              - if product.status == "売却済み"
+                .info-status__sold
+                  =product.status
