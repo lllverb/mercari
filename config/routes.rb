@@ -41,6 +41,7 @@ devise_for :users,
     end
     member do
       get 'confirmation'
+      get 'mine'
     end
   end
 
