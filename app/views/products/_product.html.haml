@@ -12,6 +12,9 @@
             .sold_triangle
             .sold
               SOLD
+        .icon-area
+          - @product.product_images.each do |image|
+            .opacity.icon{style: "background-image: url(#{image.image})"}
       .product-container__inner--center--right
         .tablearea
           %table
