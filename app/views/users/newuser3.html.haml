@@ -10,40 +10,40 @@
           %h2 発送元・お届け先住所入力
         .my-page-container--lower
           .my-page-container--lower--inner
-            = form_for "" do |f|
+            = form_for (current_user) do |f|
               .null-null
                 %h5 お名前
                 %span.null-false 必須
-              = f.text_field :last_name, placeholder: "例)山田"
-              = f.text_field :first_name, placeholder: "例)太郎"
+              = f.text_field :last_name, placeholder: "例)山田", value: current_user.last_name
+              = f.text_field :first_name, placeholder: "例)太郎", value: current_user.first_name
               .null-null
                 %h5 お名前カナ(全角)
                 %span.null-false 必須
-              = f.text_field :last_name_kana, placeholder: "例)ヤマダ"
-              = f.text_field :first_name_kana, placeholder: "例)タロウ"
+              = f.text_field :last_name_kana, placeholder: "例)ヤマダ", value: current_user.last_name_kana
+              = f.text_field :first_name_kana, placeholder: "例)タロウ", value: current_user.first_name_kana
               .null-null
                 %h5 郵便番号
                 %span.null-false 必須
-              = f.text_field :postal_code, :maxlength => "8", :name => "zip01", :onkeyup => "AjaxZip3.zip2addr(this,'','pref01','addr01');", :size => "10", :type => "text"
+              = f.text_field :postal_code, :maxlength => "8", :name => "zip01", :onkeyup => "AjaxZip3.zip2addr(this,'','pref01','addr01');", :size => "10", :type => "text", value: current_user.postal_code
               .null-null
                 %h5 都道府県
                 %span.null-false 必須
-              = f.text_field :prefecture, :name => "pref01", :size => "20", :type => "text"
+              = f.text_field :prefecture, :name => "pref01", :size => "20", :type => "text", value: current_user.prefecture
               .null-null
                 %h5 市区町村
                 %span.null-false 必須
-              = f.text_field :city, :name => "addr01", :size => "60", :type => "text"
+              = f.text_field :city, :name => "addr01", :size => "60", :type => "text", value: current_user.city
               .null-null
                 %h5 番地 
                 %span.null-false 必須
-              = f.text_field :last_name, placeholder: "例)青山1-1-1"
+              = f.text_field :last_name, placeholder: "例)青山1-1-1", value: current_user.house_number
               .null-null
                 %h5 建物名 
                 %span.null-false 必須
-              = f.text_field :last_name, placeholder: "例)柳ビル103"
+              = f.text_field :last_name, placeholder: "例)柳ビル103" , value: current_user.building_name
               .null-null
                 %h5 電話
                 %span.null-false 必須
-              = f.text_field :last_name, placeholder: "例)09012345678"
+              = f.text_field :last_name, placeholder: "例)09012345678", value: current_user.phone_number
               = f.button "次へ進む", class:"button"
 = render 'shared/main_footer'

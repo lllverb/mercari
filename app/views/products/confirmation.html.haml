@@ -1,5 +1,6 @@
 .exhibit-header
-  = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3466462615", class: 'header-mercari-logo'
+  = link_to root_path do
+    = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3466462615", class: 'header-mercari-logo'
 .product-container
   .product-container--upper
     .my-page-container--upper
@@ -31,7 +32,27 @@
   .my-page-container--lower
     .shipping-method
       .inner-box
-        配送先
+        %h1 配送先
+        .shipping-postal_code
+          = "〒#{current_user.postal_code}"
+        .shipping-address
+          = current_user.prefecture
+          = current_user.city
+          = current_user.house_number
+          = current_user.building_name
+        .user-name
+          = current_user.last_name
+          = current_user.first_name
+        .edit-button
+          = link_to '変更する',newuser3_users_path
     .method-payment
       .inner-box
-        支払い方法
+        %h1 支払い方法
+        .payment-card-number
+          ************1234
+        .payment-card-limit
+          03/30
+        .payment-card-brand
+          = image_tag "visa.png", class:"visa-logo"
+        .edit-button
+          = link_to '変更する',root_path

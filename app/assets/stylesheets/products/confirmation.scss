@@ -18,6 +18,7 @@
 .inner-box{
   margin:0 auto;
   padding:24px 0 20px;
+  width:60%;
 }
 
 .product-container--center{
@@ -94,10 +95,20 @@
 
 .my-page-container--lower{
   .shipping-method{
-    height:100px;
+    height:150px;
     border-bottom:solid 2px #F5F5F5;
+    h1{
+      font-weight:bold;
+    }
   }
   .method-payment{
-    height:100px;
+    height:150px;
+    font-weight:200;
+    h1{
+      font-weight:bold;
+    }
+    .visa-logo{
+      height:20px;
+    }
   }
 }
