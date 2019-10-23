@@ -20,8 +20,7 @@ class ProductsController < ApplicationController
   def new
     @parents = Category.where(ancestry: nil)
     @product = Product.new
-    @product.product_images.build
-    9.times{@product.product_images.build}
+    10.times{@product.product_images.build}
   end
   
   def create
