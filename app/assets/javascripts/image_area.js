@@ -20,8 +20,13 @@ document.addEventListener("turbolinks:load", function() {
       })(file)
       reader.readAsDataURL(file);
       $(`#product_product_images_attributes_${theForm}_image`).addClass('hidden')
-      if($(`#product_product_images_attributes_${theForm + 1}_image`).val() == ''){
-        $(`#product_product_images_attributes_${theForm + 1}_image`).removeClass('hidden')
+      i = 0
+      while (i < 9){
+        if($(`#product_product_images_attributes_${theForm + i}_image`).val() == ''){
+          $(`#product_product_images_attributes_${theForm + i}_image`).removeClass('hidden')
+          break
+        }
+      i += 1
       }
     });
   });
@@ -32,7 +37,6 @@ document.addEventListener("turbolinks:load", function() {
     $(`#product_product_images_attributes_${previewID}_image`).val('')
     $('input[type="file"]').addClass('hidden')
     $(`#product_product_images_attributes_${previewID}_image`).removeClass('hidden')
-
   })
   $('#product_product_images_attributes_1_image').addClass('hidden')
   $('#product_product_images_attributes_2_image').addClass('hidden')
