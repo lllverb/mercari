@@ -11,8 +11,10 @@
               %span.null-false 必須
             最大10枚までアップロードできます
             .image-area
+            .file-field
               = f.fields_for :product_images do |i|
                 = i.file_field :image
+              .form-center
         .product__name.border-bottom
           .inner-box
             .null-null
