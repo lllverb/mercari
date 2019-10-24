@@ -33,6 +33,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    10.times{@product.product_images.build}
   end
   
   def update
