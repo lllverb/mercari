@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :pay, :mine, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :pay, :mine, :destroy, :complete]
   def index
     ladies = Category.find_by(name: "レディース").subtree_ids
     @ladies = Product.where(category_id: ladies).where(status: "出品中").limit(10).order('created_at DESC').includes(:product_images)
@@ -51,7 +51,7 @@ class ProductsController < ApplicationController
     )
     @purchase = Purchase.create(purchase_params)
     @product.update_attributes(status: "取引中")
-    redirect_to products_complete_path
+    redirect_to complete_product_path
   end
 
   def confirmation
