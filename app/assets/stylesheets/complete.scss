@@ -1,14 +1,15 @@
 .purchase_header{
-  height: 135px;
+  height:128px;
+  background: #F5F5F5;
   text-align: center;
-  line-height: 135px;
-  background-color:#F5F5F5;
   .logo{
-    height: 50px;
+    width: 185px;
+    height: 49px;
+    margin: 40px 0 0;
   }
 }
-.purchase_contain_super{
-  padding-bottom: 50px;
+.purchase_container_super{
+  padding-bottom: 100px;
   background-color:#F5F5F5;
 }
 .purchase_contain{
@@ -46,7 +47,7 @@
         // line-height: 135px;
         .image{
           height: 300px;
-          width: 200px;
+          width: 225px;
           background-size: contain;
           background-repeat: no-repeat;
           background-position: center;
@@ -60,8 +61,7 @@
       height: 100px;
       width: 100%;
       text-align: center;
-      line-height: 100px;
+      line-height: 127px;
     }
   } 
 }
-
