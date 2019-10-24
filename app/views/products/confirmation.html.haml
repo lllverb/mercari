@@ -28,7 +28,7 @@
           配送先と支払い方法の入力を完了してください。
         .to-purchase-button
           = form_tag(action: :pay, method: :post) do
-            %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript", "data-text": "購入する", "data-key": ENV['TEST_PUBLIC_KEY']} 
+            %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript", "data-text": "購入する", "data-key": Rails.application.credentials.payjp[:TEST_PUBLIC_KEY]} 
   .my-page-container--lower
     .shipping-method
       .inner-box

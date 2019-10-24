@@ -73,7 +73,7 @@
         -# - if @product.user.id != current_user.id && @product.status == "出品中"
       .to-purchase-button
         = form_tag(action: :pay, method: :post) do
-          %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript", "data-text": "購入する", "data-key": ENV['TEST_PUBLIC_KEY']} 
+          %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript", "data-text": "購入する", "data-key": Rails.application.credentials.payjp[:TEST_PUBLIC_KEY]} 
         = link_to '購入する', confirmation_product_path(@product), class: "product__link"
       .product-container__inner--lower--center
         = @product.detail
