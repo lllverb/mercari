@@ -10,7 +10,7 @@
               %h5 カード番号
               %span.null-false 必須
             .form__card--center
-              %input{placeholder: "半角数字のみ"}
+              %input{placeholder: "半角数字のみ", maxlength: "16"}
             .form__card--lower
               -# = image_tag "credit-cards", height: "18"
           .form__deadlile
@@ -54,7 +54,7 @@
               %h5 セキュリティコード
               %span.null-false 必須
             .form__cvc--center
-              %input{placeholder: "カード背面4桁もしくは3桁の番号"}
+              %input{placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4"}
             .form__cvc--lower
               -# font-awesomeいれる...............................
               %span ?
