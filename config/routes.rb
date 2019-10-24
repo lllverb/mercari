@@ -32,7 +32,6 @@ devise_for :users,
     end
   end
   root 'products#index'
-  get 'products/complete'
   resources :products do
     collection do
       post 'pay/:id' => 'products#pay', as: 'pay'
@@ -41,6 +40,7 @@ devise_for :users,
     end
     member do
       get 'confirmation'
+      get 'complete'
       get 'mine'
     end
   end
