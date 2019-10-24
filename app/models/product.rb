@@ -24,6 +24,7 @@ class Product < ApplicationRecord
   validates :deliveryday_id, presence: true
   validates :price, presence: true, format: {with: /\A\d{3,7}\z/, message: 'は半角数字で入力してください'}
   validates :status, presence: true
+  validates :product_images, associated: true, presence: true
 
   def previous
     Product.where("id < ?",id).order("id DESC").first
