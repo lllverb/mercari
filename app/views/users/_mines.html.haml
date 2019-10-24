@@ -1,6 +1,6 @@
 .mypage__tab-container__info
   - @products.each do |product|
-    = link_to product_path(product), class:'info-link'  do
+    = link_to mine_product_path(product), class:'info-link'  do
       .info-box
         .info-icon
           .mercari_info_icon{style: "background-image: url(#{product.product_images[0].image})"}
