@@ -24,6 +24,7 @@
     .message_upper{
       font-size: 22px;
       color: #FF0111;
+      font-weight: bold;
     }
   }
   &__center{
@@ -37,31 +38,32 @@
       line-height: 135px;
       margin-bottom: 20px;
       border-bottom:solid 1px #F5F5F5;
+      font-weight: bold;
     }
     .product_box{
-      height: 300px;
-      text-align: center;
       .product_image{
-        font-size: 30px;
-        // text-align: center;
-        // line-height: 135px;
         .image{
-          height: 300px;
-          width: 225px;
+          height: 200px;
           background-size: contain;
           background-repeat: no-repeat;
           background-position: center;
+          display: flex;
+          justify-content: center;
+          padding:0px 200px;
+          margin-bottom:10px;
         }
       }
       .product_name{
         border-bottom:solid 1px #F5F5F5;
+        font-size:24px;
+        font-weight: bold;
       }
     }
     .product_price{
       height: 100px;
-      width: 100%;
       text-align: center;
-      line-height: 127px;
+      line-height: 100px;
+      font-weight: bold;
     }
   } 
 }
