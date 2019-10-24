@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
   end
 
   def pay
-    Payjp.api_key = ENV['TEST_SECRET_KEY']
+    Payjp.api_key = Rails.application.credentials.payjp[:TEST_SECRET_KEY]
     charge = Payjp::Charge.create(
     amount: @product.price,
     card: params['payjp-token'],
