@@ -72,9 +72,12 @@
         %p 送料込み
         -# - if @product.user.id != current_user.id && @product.status == "出品中"
       .to-purchase-button
-        = form_tag(action: :pay, method: :post) do
-          %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript", "data-text": "購入する", "data-key": Rails.application.credentials.payjp[:TEST_PUBLIC_KEY]} 
-        = link_to '購入する', confirmation_product_path(@product), class: "product__link"
+        - if user_signed_in?
+          = form_tag(action: :pay, method: :post) do
+            %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript", "data-text": "購入する", "data-key": Rails.application.credentials.payjp[:TEST_PUBLIC_KEY]} 
+          -# = link_to '購入する', confirmation_product_path(@product), class: "product__link"
+        - else
+          = link_to '購入する', new_user_session_path, class: "to-purchase-button"
       .product-container__inner--lower--center
         = @product.detail
       .product-container__inner--lower--lower
