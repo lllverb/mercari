@@ -1,4 +1,11 @@
 .sell-form{
+  .red{
+    color: $mercari_red;
+    font-size: 14px!important;
+  }
+  .validation-price{
+    margin-top: 20px;
+  }
   .product__images{
     .image-area{
       display: flex;
