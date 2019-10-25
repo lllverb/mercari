@@ -10,50 +10,50 @@ document.addEventListener("turbolinks:load", function() {
       i += 1
     }
     if (howmany.length == 10) {
-      buildRedImage()
-      $('.validation-image').append(p)
+      var appendArea = $('.validation-image')
+      buildRedImage(appendArea)
     }
     if ($('#product_name').val() == ''){
-      buildRedP()
-      $('.validation-name').append(p)
+      var appendArea = $('.validation-name')
+      buildRedP(appendArea)
     }
     if ($('#product_detail').val() == ''){
-      buildRedP()
-      $('.validation-detail').append(p)
+      var appendArea = $('.validation-detail')
+      buildRedP(appendArea)
     }
     if (!document.querySelector('#product_category_grandchildren_id')){
-      buildRedChoice()
-      $('.validation-category').append(p)
+      var appendArea = $('.validation-category')
+      buildRedChoice(appendArea)
     }
     if ($('#product_category_grandchildren_id').val() == ''){
-      buildRedChoice()
-      $('.validation-category').append(p)
+      var appendArea = $('.validation-category')
+      buildRedChoice(appendArea)
     }
     if ($('#product_condition_id').val() == ''){
-      buildRedChoice()
-      $('.validation-condition').append(p)
+      var appendArea = $('.validation-condition')
+      buildRedChoice(appendArea)
     }
     if ($('#product_shipping_fee_id').val() == ''){
-      buildRedChoice()
-      $('.validation-shipping-fee').append(p)
+      var appendArea = $('.validation-shipping-fee')
+      buildRedChoice(appendArea)
     }
     if ($('#product_shipping_method_id').val() == ''){
-      buildRedChoice()
-      $('.validation-shipping-method').append(p)
+      var appendArea = $('.validation-shipping-method')
+      buildRedChoice(appendArea)
     }
     if ($('#product_prefecture_id').val() == ''){
-      buildRedChoice()
-      $('.validation-prefecture').append(p)
+      var appendArea = $('.validation-prefecture')
+      buildRedChoice(appendArea)
     }
     if ($('#product_deliveryday_id').val() == ''){
-      buildRedChoice()
-      $('.validation-deliveryday').append(p)
+      var appendArea = $('.validation-deliveryday')
+      buildRedChoice(appendArea)
     }
     if ($('#product_price').val() == '' ||
         Number($('#product_price').val()) < 300 ||
         9999999 < Number($('#product_price').val())){
+      var appendArea = $('.validation-price')
       buildRedPrice()
-      $('.validation-price').append(p)
     }
     if ($('#product_name').val() == '' ||
         $('#product_detail').val() == '' ||
@@ -68,20 +68,20 @@ document.addEventListener("turbolinks:load", function() {
       return false
     }
   })
-  function buildRedImage(){
+  function buildRedImage(appendArea){
     p = `<p class='red'>画像がありません</p>`
-    return p
+    appendArea.append(p)
   }
-  function buildRedP(){
+  function buildRedP(appendArea){
     p = `<p class='red'>入力してください</p>`
-    return p
+    appendArea.append(p)
   }
-  function buildRedChoice(){
+  function buildRedChoice(appendArea){
     p = `<p class='red'>選択してください</p>`
-    return p
+    appendArea.append(p)
   }
-  function buildRedPrice(){
+  function buildRedPrice(appendArea){
     p = `<p class='red'>300以上9999999以下で入力してください</p>`
-    return p
+    appendArea.append(p)
   }
 })
