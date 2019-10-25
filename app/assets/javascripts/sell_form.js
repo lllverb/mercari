@@ -1,6 +1,7 @@
 document.addEventListener("turbolinks:load", function() {
   function buildChildrenSelect() {
-    childrenSelect = `<select id="product_category_children_id">
+    childrenSelect = `<select id="product_category_children_id" prompt="---">
+                        <option value="">---</option>
                       </select>`
     $('.category-second').append(childrenSelect);
   }
@@ -10,6 +11,7 @@ document.addEventListener("turbolinks:load", function() {
   }
   function buildGrandchildrenSelect() {
     grandchildrenSelect =  `<select name="product[category_id]" id="product_category_grandchildren_id">
+                              <option value="">---</option>
                             </select>`
     $('.category-third').append(grandchildrenSelect);
   }
@@ -80,4 +82,5 @@ document.addEventListener("turbolinks:load", function() {
       setPrices();
   })
   setPrices();
+
 })

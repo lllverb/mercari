@@ -15,16 +15,19 @@
               = f.fields_for :product_images do |i|
                 = i.file_field :image
               .form-center
+            .validation-image.validation-area
         .product__name.border-bottom
           .inner-box
             .null-null
               %h5 商品名
               %span.null-false 必須
             = f.text_field :name, placeholder: "商品名(必須40文字まで)"
+            .validation-name.validation-area
             .null-null
               %h5 商品の説明
               %span.null-false 必須
             = f.text_area :detail, placeholder: "商品の説明(必須1,000文字以内)(色、素材、重さ、定価、注意点など)　例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+            .validation-detail.validation-area
         .product__category.border-bottom
           .inner-box.choose
             .choose--left
@@ -34,13 +37,15 @@
                 %h5 カテゴリー
                 %span.null-false 必須
               .category-first
-                = f.select :category, Category.where(ancestry: nil).map{|p| [p.name, p.id]}
+                = f.select :category, Category.where(ancestry: nil).map{|p| [p.name, p.id]}, prompt: "---"
               .category-second
               .category-third
+              .validation-category.validation-area
               .null-null
                 %h5 商品の状態
                 %span.null-false 必須
-              = f.select :condition_id, Condition.all.collect{|x|[x.content, x.id]}
+              = f.select :condition_id, Condition.all.collect{|x|[x.content, x.id]}, prompt: "---"
+              .validation-condition.validation-area
         .product__shipping.border-bottom
           .inner-box.choose
             .choose--left
@@ -49,19 +54,23 @@
               .null-null
                 %h5 配送料の負担
                 %span.null-false 必須
-              = f.select :shipping_fee_id, ShippingFee.all.collect{|x|[x.content, x.id]}
+              = f.select :shipping_fee_id, ShippingFee.all.collect{|x|[x.content, x.id]}, prompt: "---"
+              .validation-shipping-fee.validation-area
               .null-null
                 %h5 配送方法
                 %span.null-false 必須
-              = f.select :shipping_method_id, ShippingMethod.all.collect{|x|[x.content, x.id]}
+              = f.select :shipping_method_id, ShippingMethod.all.collect{|x|[x.content, x.id]}, prompt: "---"
+              .validation-shipping-method.validation-area
               .null-null
                 %h5 発送元の地域
                 %span.null-false 必須
-              = f.select :prefecture_id, Prefecture.all.collect{|x|[x.name, x.id]}
+              = f.select :prefecture_id, Prefecture.all.collect{|x|[x.name, x.id]}, prompt: "---"
+              .validation-prefecture.validation-area
               .null-null
                 %h5 発送までの日数
                 %span.null-false 必須
-              = f.select :deliveryday_id, Deliveryday.all.collect{|x|[x.content, x.id]}
+              = f.select :deliveryday_id, Deliveryday.all.collect{|x|[x.content, x.id]}, prompt: "---"
+              .validation-deliveryday.validation-area
         .product__price.border-bottom
           .inner-box.choose
             .choose--left
@@ -71,6 +80,7 @@
                 %h5 価格
                 %span.null-false 必須
                 = f.text_field :price, placeholder: "例)300", class: "price"
+              .validation-price.validation-area
               .center
                 .center--left
                   %h4 販売手数料

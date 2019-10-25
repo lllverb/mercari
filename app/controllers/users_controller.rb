@@ -9,7 +9,11 @@ class UsersController < ApplicationController
   def profile
   end
 
-  def edit
+  def show
+    redirect_to root_path
+  end
+
+  def edit 
   end
 
   def update
