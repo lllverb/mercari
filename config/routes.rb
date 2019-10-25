@@ -42,6 +42,8 @@ devise_for :users,
       get 'confirmation'
       get 'complete'
       get 'mine'
+      patch 'sellstop'
+      patch 'sellrestart'
     end
   end
 

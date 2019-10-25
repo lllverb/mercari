@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :pay, :mine, :destroy, :complete]
+  before_action :set_product, only: [:show, :edit, :update, :pay, :mine, :destroy, :complete, :sellstop, :sellrestart]
   def index
     ladies = Category.find_by(name: "レディース").subtree_ids
     @ladies = Product.where(category_id: ladies).where(status: "出品中").limit(10).order('created_at DESC').includes(:product_images)
@@ -71,6 +71,20 @@ class ProductsController < ApplicationController
   end
 
   def mine
+  end
+
+  def sellstop
+    if @product.status == '出品中'
+      @product.update_attributes(status: "公開停止中")
+      redirect_to mine_product_path(@product)
+    end
+  end
+
+  def sellrestart
+    if @product.status == '公開停止中'
+      @product.update_attributes(status: "出品中")
+      redirect_to mine_product_path(@product)
+    end
   end
 
   def destroy
