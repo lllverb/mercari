@@ -2,13 +2,13 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :pay, :mine, :destroy, :complete, :sellstop, :sellrestart]
   def index
     ladies = Category.find_by(name: "レディース").subtree_ids
-    @ladies = Product.where(category_id: ladies).where(status: "出品中").limit(10).order('created_at DESC').includes(:product_images)
+    @ladies = Product.where(category_id: ladies).where(status: :exhibit).limit(10).order('created_at DESC').includes(:product_images)
     mens = Category.find_by(name: "メンズ").subtree_ids
-    @mens = Product.where(category_id: mens).where(status: "出品中").limit(10).order('created_at DESC').includes(:product_images)
+    @mens = Product.where(category_id: mens).where(status: :exhibit).limit(10).order('created_at DESC').includes(:product_images)
     machines = Category.find_by(name: "家電・スマホ・カメラ").subtree_ids
-    @machines = Product.where(category_id: machines).where(status: "出品中").limit(10).order('created_at DESC').includes(:product_images)
+    @machines = Product.where(category_id: machines).where(status: :exhibit).limit(10).order('created_at DESC').includes(:product_images)
     toys = Category.find_by(name: "おもちゃ・ホビー・グッズ").subtree_ids
-    @toys = Product.where(category_id: toys).where(status: "出品中").limit(10).order('created_at DESC').includes(:product_images)
+    @toys = Product.where(category_id: toys).where(status: :exhibit).limit(10).order('created_at DESC').includes(:product_images)
   end
 
   def show
@@ -51,7 +51,7 @@ class ProductsController < ApplicationController
     currency: 'jpy'
     )
     @purchase = Purchase.create(purchase_params)
-    @product.update_attributes(status: "取引中")
+    @product.update_attributes(status: :tarde)
     redirect_to complete_product_path
   end
 
@@ -74,15 +74,15 @@ class ProductsController < ApplicationController
   end
 
   def sellstop
-    if @product.status == '出品中'
-      @product.update_attributes(status: "公開停止中")
+    if @product.status == 'exhibit'
+      @product.update_attributes(status: :stop)
       redirect_to mine_product_path(@product)
     end
   end
 
   def sellrestart
-    if @product.status == '公開停止中'
-      @product.update_attributes(status: "出品中")
+    if @product.status == 'stop'
+      @product.update_attributes(status: :exhibit)
       redirect_to mine_product_path(@product)
     end
   end
@@ -107,7 +107,7 @@ class ProductsController < ApplicationController
             :prefecture_id, 
             :deliveryday_id, 
             :price, 
-            :pay, 
+            :pay,
             product_images_attributes:[:image])
             .merge(user_id: current_user.id)
   end

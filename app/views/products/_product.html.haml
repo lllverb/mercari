@@ -8,11 +8,11 @@
     .product-container__inner--center
       .product-container__inner--center--left
         .image{style: "background-image: url(#{@product.product_images[0].image})"}
-          - if @product.status == "取引中" || @product.status == "売却済み"
+          - if @product.status == 'trade' || @product.status == 'sold'
             .sold_triangle
             .sold
               SOLD
-          - if @product.status == "公開停止中"
+          - if @product.status == 'stop'
             .stop_listing
             .stop
               公開停止中
@@ -70,7 +70,7 @@
           = "￥#{@product.price.to_s(:delimited)}"
         %span (税込)
         %p 送料込み
-        -# - if @product.user.id != current_user.id && @product.status == "出品中"
+        -# - if @product.user.id != current_user.id && @product.status == :exhibit
       .to-purchase-button
         - if user_signed_in?
           = form_tag(action: :pay, method: :post) do

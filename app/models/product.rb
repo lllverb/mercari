@@ -12,6 +12,7 @@ class Product < ApplicationRecord
   has_many   :users, through: :purchases
   accepts_nested_attributes_for :product_images, allow_destroy: true
   
+  enum status:{exhibit: 0, stop: 1, trade: 2, sold: 3}
 
   validates :user_id, presence: true
   validates :name, presence: true, length: { maximum: 40 }
