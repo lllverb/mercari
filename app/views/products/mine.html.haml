@@ -9,7 +9,17 @@
       .product-container__inner--center
         .product-container__inner--center--left
           .image{style: "background-image: url(#{@product.product_images[0].image})"}
-
+            - if @product.status == 'trade' || @product.status == 'sold'
+              .sold_triangle
+              .sold
+                SOLD
+            - if @product.status == 'stop'
+              .stop_listing
+              .stop
+                公開停止中
+          .icon-area
+            - @product.product_images.each do |image|
+              .opacity.icon{style: "background-image: url(#{image.image})"}
         .product-container__inner--center--right
           .tablearea
             %table
@@ -72,7 +82,10 @@
         .product_text_or
           or
         .sell-return
-          = link_to '出品を一旦停止する', '#', method: :delete, class:'gray-button'
+        - if @product.status == 'exhibit'
+          = link_to '出品を一旦停止する', sellstop_product_path(@product), method: :patch, class:'gray-button'
+        - if @product.status == 'stop'
+          = link_to '出品を再開する', sellrestart_product_path(@product), method: :patch, class:'button'
         .sell-return
           = link_to 'この商品を削除する', product_path(@product), method: :delete, class:'gray-button'
 .gray

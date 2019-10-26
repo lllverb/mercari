@@ -10,6 +10,6 @@ FactoryBot.define do
     prefecture_id        {"1"}
     deliveryday_id       {"1"}
     category_id          {"1"}
-    status               {"出品中"}
+    status               {:exhibit}
   end
 end
