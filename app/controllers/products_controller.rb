@@ -51,7 +51,7 @@ class ProductsController < ApplicationController
     currency: 'jpy'
     )
     @purchase = Purchase.create(purchase_params)
-    @product.update_attributes(status: :tarde)
+    @product.update_attributes(status: :trade)
     redirect_to complete_product_path
   end
 
