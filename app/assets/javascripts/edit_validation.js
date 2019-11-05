@@ -1,5 +1,5 @@
 document.addEventListener("turbolinks:load", function() {
-  $(document).on('click', '.sell-button', function(){
+  $(document).on('click', '.edit-button', function(){
     $('.validation-area').empty()
     i = 0
     howmany = []
@@ -21,11 +21,11 @@ document.addEventListener("turbolinks:load", function() {
       var appendArea = $('.validation-detail')
       buildRedP(appendArea)
     }
-    if (!document.querySelector('#product_category_grandchildren_id')){
+    if (!document.querySelector('#product_category_id')){
       var appendArea = $('.validation-category')
       buildRedChoice(appendArea)
     }
-    if ($('#product_category_grandchildren_id').val() == ''){
+    if ($('#product_category_id').val() == ''){
       var appendArea = $('.validation-category')
       buildRedChoice(appendArea)
     }
@@ -50,15 +50,15 @@ document.addEventListener("turbolinks:load", function() {
       buildRedChoice(appendArea)
     }
     if ($('#product_price').val() == '' ||
-        Number($('#product_price').val()) < 300 ||
-        9999999 < Number($('#product_price').val())){
+    Number($('#product_price').val()) < 300 ||
+    9999999 < Number($('#product_price').val())){
       var appendArea = $('.validation-price')
       buildRedPrice()
     }
     if ($('#product_name').val() == '' ||
         $('#product_detail').val() == '' ||
-        !document.querySelector('#product_category_grandchildren_id') ||
-        $('#product_category_grandchildren_id').val() == '' ||
+        !document.querySelector('#product_category_id') ||
+        $('#product_category_id').val() == '' ||
         $('#product_condition_id').val() == '' ||
         $('#product_shipping_fee_id').val() == '' ||
         $('#product_shipping_method_id').val() == '' ||

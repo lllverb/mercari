@@ -1,3 +1,7 @@
+.purchase_header
+  .purchase_header__logo
+    = link_to root_path do
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?1248199994", class:"logo"
 .my-page-container
   .sell-form
     .my-page-container--upper
@@ -14,16 +18,20 @@
             .file-field
               = f.fields_for :product_images do |i|
                 = i.file_field :image
+              .form-center
+            .validation-image.validation-area
         .product__name.border-bottom
           .inner-box
             .null-null
               %h5 商品名
               %span.null-false 必須
             = f.text_field :name, placeholder: "商品名(必須40文字まで)"
+            .validation-name.validation-area
             .null-null
               %h5 商品の説明
               %span.null-false 必須
             = f.text_area :detail, placeholder: "商品の説明(必須1,000文字以内)(色、素材、重さ、定価、注意点など)　例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+            .validation-detail.validation-area
         .product__category.border-bottom
           .inner-box.choose
             .choose--left
@@ -38,10 +46,12 @@
                 = f.select :category_children_id, @product.category.parent.siblings.map{|p| [p.name, p.id]}
               .category-third
                 = f.select :category_id, @product.category.siblings.map{|p| [p.name, p.id]}
+              .validation-category.validation-area
               .null-null
                 %h5 商品の状態
                 %span.null-false 必須
-              = f.select :condition_id, Condition.all.collect{|x|[x.content, x.id]}
+              = f.select :condition_id, Condition.all.collect{|x|[x.content, x.id]}, prompt: "---"
+              .validation-condition.validation-area
         .product__shipping.border-bottom
           .inner-box.choose
             .choose--left
@@ -50,19 +60,23 @@
               .null-null
                 %h5 配送料の負担
                 %span.null-false 必須
-              = f.select :shipping_fee_id, ShippingFee.all.collect{|x|[x.content, x.id]}
+              = f.select :shipping_fee_id, ShippingFee.all.collect{|x|[x.content, x.id]}, prompt: "---"
+              .validation-shipping-fee.validation-area
               .null-null
                 %h5 配送方法
                 %span.null-false 必須
-              = f.select :shipping_method_id, ShippingMethod.all.collect{|x|[x.content, x.id]}
+              = f.select :shipping_method_id, ShippingMethod.all.collect{|x|[x.content, x.id]}, prompt: "---"
+              .validation-shipping-method.validation-area
               .null-null
                 %h5 発送元の地域
                 %span.null-false 必須
-              = f.select :prefecture_id, Prefecture.all.collect{|x|[x.name, x.id]}
+              = f.select :prefecture_id, Prefecture.all.collect{|x|[x.name, x.id]}, prompt: "---"
+              .validation-prefecture.validation-area
               .null-null
                 %h5 発送までの日数
                 %span.null-false 必須
-              = f.select :deliveryday_id, Deliveryday.all.collect{|x|[x.content, x.id]}
+              = f.select :deliveryday_id, Deliveryday.all.collect{|x|[x.content, x.id]}, prompt: "---"
+              .validation-deliveryday.validation-area
         .product__price.border-bottom
           .inner-box.choose
             .choose--left
@@ -72,6 +86,7 @@
                 %h5 価格
                 %span.null-false 必須
                 = f.text_field :price, placeholder: "例)300", class: "price"
+              .validation-price.validation-area
               .center
                 .center--left
                   %h4 販売手数料
@@ -84,6 +99,10 @@
                   %p -
         .product__submit
           .inner-box
-            = f.submit "変更する", class: "sell-button"
-            .sell-return
-              = link_to "キャンセル", class: "sell-return"
+            .caution
+              %p 禁止されている出品、行為を必ずご確認ください。
+              %p またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+              %p また、出品をもちまして加盟店規約に同意したことになります。
+            = f.submit "出品する", class: "edit-button"
+            .sell-return{onclick: "window.history.back();"} もどる
+            

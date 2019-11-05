@@ -38,6 +38,7 @@ class ProductsController < ApplicationController
   
   def update
     if @product.user_id == current_user.id
+      binding.pry
       @product.update(product_params)
       redirect_to product_path(@product)
     end
@@ -108,7 +109,7 @@ class ProductsController < ApplicationController
             :deliveryday_id, 
             :price, 
             :pay,
-            product_images_attributes:[:image])
+            product_images_attributes:[:id, :image])
             .merge(user_id: current_user.id)
   end
 
