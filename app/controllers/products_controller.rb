@@ -38,7 +38,6 @@ class ProductsController < ApplicationController
   
   def update
     if @product.user_id == current_user.id
-      binding.pry
       @product.update(product_params)
       redirect_to product_path(@product)
     end
