@@ -24,9 +24,7 @@
           %h1
             = "￥#{@product.price.to_s(:delimited)}"
       .product-container--center--lower
-        .alert-message
-          配送先と支払い方法の入力を完了してください。
-        .to-purchase-button
+        .to-purchase-buttona
           = form_tag(action: :pay, method: :post) do
             %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript", "data-text": "購入する", "data-key": Rails.application.credentials.payjp[:TEST_PUBLIC_KEY]} 
   .my-page-container--lower
@@ -49,9 +47,9 @@
       .inner-box
         %h1 支払い方法
         .payment-card-number
-          ************1234
+          ************4242
         .payment-card-limit
-          03/30
+          12/23
         .payment-card-brand
           = image_tag "visa.png", class:"visa-logo"
         .edit-button
