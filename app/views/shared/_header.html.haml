@@ -9,7 +9,7 @@
         = link_to "" do
           = fa_icon('search')
     .header-container__lower
-      -# = render 'shared/find_by'
+      = render 'shared/find_by'
       .header-container__lower--right
         - unless user_signed_in?
           .new-user-resistration 
